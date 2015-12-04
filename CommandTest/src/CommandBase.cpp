@@ -14,7 +14,7 @@ CommandBase::CommandBase(char const *name) :
 CommandBase::CommandBase() :
 		Command()
 {
-
+ //Hi this is a test
 }
 
 void CommandBase::init()
