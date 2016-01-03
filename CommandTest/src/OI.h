@@ -5,11 +5,8 @@
 
 class OI
 {
-private:
-	Joystick *joy1;
-
 public:
-	float x, y;
+	Joystick *joy1;
 	OI();
 };
 

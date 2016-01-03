@@ -19,7 +19,7 @@ void driveArcade::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void driveArcade::Execute()
 {
-	CommandBase::drivetrain->arcadeDrive(xDirc, yDirc);
+	CommandBase::drivetrain->ArcadeDrive(xDirc, yDirc);
 }
 
 // Make this return true when this Command no longer needs to run execute()

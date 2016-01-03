@@ -2,6 +2,7 @@
 #include "../RobotMap.h"
 #include "SmartDashboard/SmartDashboard.h"
 #include "LiveWindow/LiveWindow.h"
+#include "Commands/driveArcade.h"
 #define PI 3.14159
 
 Chassis::Chassis() :
@@ -66,4 +67,6 @@ void Chassis::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//setDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new driveArcade(CommandBase::oi->joy1->GetRawAxis(0),
+			CommandBase::oi->joy1->GetRawAxis(1)));
 }
