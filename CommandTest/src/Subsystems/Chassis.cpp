@@ -2,7 +2,7 @@
 #include "../RobotMap.h"
 #include "SmartDashboard/SmartDashboard.h"
 #include "LiveWindow/LiveWindow.h"
-#include "Commands/driveArcade.h"
+#include "Commands/DriveArcadeThrust.h"
 #define PI 3.14159
 
 Chassis::Chassis() :
@@ -42,6 +42,18 @@ void Chassis::ArcadeDrive(float x, float y){ //may want to change to a vector ca
 	backLeft->Set(left);
 }
 
+void Chassis::ArcadeDriveThrust(float x, float y, float pedal){
+	float x1 = x + pedal;
+
+	float right = x1-y;
+	float left = y+x1;
+
+	frontRight->Set(right);
+	backRight->Set(right);
+	frontLeft->Set(left);
+	backLeft->Set(left);
+}
+
 double Chassis::GetSpeed(){
 	return (LeftFront->GetRate()+RightBack->GetRate())/2; //may need to change to a vector calc
 }
@@ -74,6 +86,5 @@ void Chassis::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//setDefaultCommand(new MySpecialCommand());
-	SetDefaultCommand(new driveArcade(CommandBase::oi->joy1->GetRawAxis(0),
-			CommandBase::oi->joy1->GetRawAxis(1)));
+	SetDefaultCommand(new DriveArcadeThrust());
 }

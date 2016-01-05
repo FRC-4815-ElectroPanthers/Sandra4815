@@ -15,6 +15,7 @@ private:
 public:
 	Chassis();
 	void ArcadeDrive(float, float);
+	void ArcadeDriveThrust(float, float, float);
 	double GetSpeed();
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
