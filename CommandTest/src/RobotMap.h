@@ -3,6 +3,7 @@
 
 #include "WPILib.h"
 
+#define PI 3.14159
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -29,5 +30,7 @@ const uint32_t BR_ENC_A = 0;
 const uint32_t BR_ENC_B = 1;
 const uint32_t FL_ENC_A = 2;
 const uint32_t FL_ENC_B = 3;
+
+const int WHEEL_DIA = 6;
 
 #endif

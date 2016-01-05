@@ -3,7 +3,6 @@
 #include "SmartDashboard/SmartDashboard.h"
 #include "LiveWindow/LiveWindow.h"
 #include "Commands/DriveArcadeThrust.h"
-#define PI 3.14159
 
 Chassis::Chassis() :
 		PIDSubsystem("Chassis", 1.0, 0.0, 0.0)
@@ -21,8 +20,8 @@ Chassis::Chassis() :
 	LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
 	RightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
-	LeftFront->SetDistancePerPulse((1/4096)*(PI*6)/12); //Feet per Pulse
-	RightBack->SetDistancePerPulse((1/4096)*(PI*6)/12);
+	LeftFront->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12); //Feet per Pulse
+	RightBack->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12);
 
 	LeftFront->SetMinRate(0.001);
 	RightBack->SetMinRate(0.001);
