@@ -18,6 +18,7 @@ public:
 	void ArcadeDriveThrust(float, float, float);
 	double GetSpeed();
 	void SourcePID(PIDSensor);
+	bool PIDdone();
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	void InitDefaultCommand();

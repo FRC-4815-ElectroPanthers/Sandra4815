@@ -65,6 +65,10 @@ void Chassis::SourcePID(PIDSensor sense){
 	}
 }
 
+bool Chassis::PIDdone(){
+	return (control->GetError() == 0);
+}
+
 double Chassis::ReturnPIDInput()
 {
 	// Return your input value for the PID loop

@@ -7,10 +7,9 @@
 class DriveStraight: public CommandBase
 {
 private:
-	float speed;
-	double time;
+	double setpoint;
 public:
-	DriveStraight(float, double);
+	DriveStraight(double);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
