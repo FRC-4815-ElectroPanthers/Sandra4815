@@ -28,6 +28,7 @@ Chassis::Chassis() :
 	RightBack->SetMinRate(0.001);
 
 	control = GetPIDController();
+	sensor = encoder;
 
 }
 
@@ -50,7 +51,13 @@ double Chassis::ReturnPIDInput()
 	// Return your input value for the PID loop
 	// e.g. a sensor, like a potentiometer:
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
-	return (LeftFront->GetDistance()+RightBack->GetDistance())/2;
+	int output = 0.0;
+
+	if (sensor == encoder){
+		output = (LeftFront->GetDistance()+RightBack->GetDistance())/2;
+	}
+
+	return output;
 }
 
 void Chassis::UsePIDOutput(double output)
