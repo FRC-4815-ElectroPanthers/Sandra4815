@@ -31,7 +31,7 @@ Chassis::Chassis() :
 
 }
 
-void Chassis::ArcadeDrive(float x, float y){ //may want to change to a vector calculations
+void Chassis::ArcadeDrive(float x, float y){ //may want to change to a vector calculation
 	float right = y-x;
 	float left = y+x;
 
@@ -57,12 +57,20 @@ double Chassis::GetSpeed(){
 	return (LeftFront->GetRate()+RightBack->GetRate())/2; //may need to change to a vector calc
 }
 
+void Chassis::SourcePID(PIDSensor sense){
+	if (sense == imu && sensor != imu){
+		sensor = imu;
+	}else{
+		sensor = encoder;
+	}
+}
+
 double Chassis::ReturnPIDInput()
 {
 	// Return your input value for the PID loop
 	// e.g. a sensor, like a potentiometer:
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
-	int output = 0.0;
+	double output = 0.0;
 
 	if (sensor == encoder){
 		output = (LeftFront->GetDistance()+RightBack->GetDistance())/2;
