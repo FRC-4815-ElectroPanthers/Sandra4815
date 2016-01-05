@@ -5,11 +5,11 @@
 #include "WPILib.h"
 #include "../Subsystems/driveTrain.h"
 
-class driveArcade: public CommandBase
+class DriveArcade: public CommandBase
 {
 	float xDirc, yDirc;
 public:
-	driveArcade(float, float);
+	DriveArcade(float, float);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

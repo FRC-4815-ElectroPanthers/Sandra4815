@@ -1,6 +1,6 @@
+#include <Commands/DriveArcade.h>
 #include "driveTrain.h"
 #include "../RobotMap.h"
-#include "Commands/driveArcade.h"
 
 driveTrain::driveTrain() : Subsystem("Drive Train")
 {
@@ -23,7 +23,7 @@ void driveTrain::arcadeDrive(float x, float y){
 void driveTrain::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	SetDefaultCommand(new driveArcade(1.0, 1.0));
+	SetDefaultCommand(new DriveArcade(1.0, 1.0));
 }
 
 // Put methods for controlling this subsystem

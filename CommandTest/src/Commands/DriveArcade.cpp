@@ -1,6 +1,6 @@
-#include "driveArcade.h"
+#include <Commands/DriveArcade.h>
 
-driveArcade::driveArcade(float x, float y)
+DriveArcade::DriveArcade(float x, float y)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
@@ -10,33 +10,33 @@ driveArcade::driveArcade(float x, float y)
 }
 
 // Called just before this Command runs the first time
-void driveArcade::Initialize()
+void DriveArcade::Initialize()
 {
 	//There's nothing to initialize here, just a comment
 	//Oh so you have to commit and push!
 }
 
 // Called repeatedly when this Command is scheduled to run
-void driveArcade::Execute()
+void DriveArcade::Execute()
 {
 	CommandBase::drivetrain->ArcadeDrive(xDirc, yDirc);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool driveArcade::IsFinished()
+bool DriveArcade::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void driveArcade::End()
+void DriveArcade::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void driveArcade::Interrupted()
+void DriveArcade::Interrupted()
 {
 
 }
