@@ -12,6 +12,7 @@
 #include <I2C.h>
 #include <LiveWindow/LiveWindowSendable.h>
 #include <PIDSource.h>
+#include "WPILib.h"
 
 class IMU9Dof: public Accelerometer,
 		public I2C,

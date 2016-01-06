@@ -7,7 +7,8 @@
 
 #include "IMU9Dof.h"
 
-IMU9Dof::IMU9Dof() {
+
+IMU9Dof::IMU9Dof():I2C(I2C::kOnboard, 000) {
 	// TODO Auto-generated constructor stub
 
 }
