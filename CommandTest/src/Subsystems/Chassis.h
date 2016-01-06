@@ -10,7 +10,7 @@ private:
 	Talon *frontRight, *backRight, *frontLeft, *backLeft;
 	Encoder *LeftFront, *RightBack;
 	PIDController *control;
-	enum PIDSensor {encoder, imu} *sensor;
+	enum PIDSensor {encoder, imu} sensor;
 
 public:
 	Chassis();
