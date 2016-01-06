@@ -1,12 +1,12 @@
 /*
- * IMU9Dof.h
+ * IMUAccel.h
  *
  *  Created on: Jan 3, 2016
  *      Author: Phia
  */
 
-#ifndef IMU9DOF_H_
-#define IMU9DOF_H_
+#ifndef IMUACCEL_H_
+#define IMUACCEL_H_
 
 #include <interfaces/Accelerometer.h>
 #include <I2C.h>
@@ -14,13 +14,13 @@
 #include <PIDSource.h>
 #include "WPILib.h"
 
-class IMU9Dof: public Accelerometer,
+class IMUAccel: public Accelerometer,
 		public I2C,
 		public LiveWindowSendable,
 		public PIDSource {
 public:
-	IMU9Dof();
-	virtual ~IMU9Dof();
+	IMUAccel();
+	virtual ~IMUAccel();
 };
 
-#endif /* IMU9DOF_H_ */
+#endif /* IMUACCEL_H_ */
