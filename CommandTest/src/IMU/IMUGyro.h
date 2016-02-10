@@ -28,7 +28,7 @@
 #ifndef SRC_IMU_IMUGYRO_H_
 #define SRC_IMU_IMUGYRO_H_
 
-#include <interfaces/Gyro.h>
+//#include <interfaces/Gyro.h>
 #include <I2C.h>
 #include <LiveWindow/LiveWindowSendable.h>
 #include <PIDSource.h>
@@ -91,16 +91,16 @@
     } gyroRange_t;
 /*=========================================================================*/
 
-class IMUGyro: public Gyro, public I2C, public LiveWindowSendable, public PIDSource {
+class IMUGyro: public I2C, public LiveWindowSendable, public PIDSource { //public Gyro,
 public:
-	IMUGyro();
+	IMUGyro(Port, uint8_t);
 	virtual ~IMUGyro();
 
-	void Calibrate() override;
-	void Reset() override;
-	float GetAngle() const override;
-	double GetRate() const override;
-	double PIDGet() override;
+	//void Calibrate() override;
+	//void Reset() override;
+	//float GetAngle() const override;
+	//double GetRate() const override;
+	//double PIDGet() override;
 };
 
 #endif /* SRC_IMU_IMUGYRO_H_ */

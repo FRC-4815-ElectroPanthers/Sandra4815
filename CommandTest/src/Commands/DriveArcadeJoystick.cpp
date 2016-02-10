@@ -16,7 +16,7 @@ void DriveArcadeJoystick::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveArcadeJoystick::Execute()
 {
-	drivetrain->ArcadeDrive(oi->joy1->GetRawAxis(0), oi->joy1->GetRawAxis(1));
+	drivetrain->ArcadeDrive(-oi->joy1->GetRawAxis(1), oi->joy1->GetRawAxis(0));
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -26,8 +26,9 @@
  */
 
 #include <IMU/IMUGyro.h>
+#include <I2C.h>
 
-IMUGyro::IMUGyro():I2C(I2C::kOnboard, 0x6B) {
+IMUGyro::IMUGyro(Port port, uint8_t address):I2C(port, address) {
 	// TODO Auto-generated constructor stub
 
 
@@ -37,24 +38,24 @@ IMUGyro::~IMUGyro() {
 	// TODO Auto-generated destructor stub
 }
 
-void IMUGyro::Calibrate(){
+//void IMUGyro::Calibrate(){
 
-}
+//}
 
-void IMUGyro::Reset(){
+//void IMUGyro::Reset(){
 
-}
+//}
 
-float IMUGyro::GetAngle() const{
-	return 0.0;
-}
+//float IMUGyro::GetAngle() const{
+//	return 0.0;
+//}
 
-double IMUGyro::GetRate() const{
-	return 0.0;
-}
+//double IMUGyro::GetRate() const{
+	//return 0.0;
+//}
 
-double IMUGyro::PIDGet(){
-	return GetAngle();
-}
+//double IMUGyro::PIDGet(){
+	//return GetAngle();
+//}
 
 

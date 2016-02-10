@@ -2,6 +2,7 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "CommandBase.h"
+#include "IterativeRobot.h"
 
 class Robot: public IterativeRobot
 {

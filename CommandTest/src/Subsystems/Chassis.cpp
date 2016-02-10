@@ -17,16 +17,16 @@ Chassis::Chassis() :
 	frontLeft = new Talon(FRONTLEFT);
 	backLeft = new Talon(BACKLEFT);
 
-	LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
-	RightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
+	//LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
+	//RightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
-	LeftFront->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12); //Feet per Pulse
-	RightBack->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12);
+	//LeftFront->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12); //Feet per Pulse
+	//RightBack->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12);
 
-	LeftFront->SetMinRate(0.001);
-	RightBack->SetMinRate(0.001);
+	//LeftFront->SetMinRate(0.001);
+	//RightBack->SetMinRate(0.001);
 
-	control = GetPIDController();
+	//control = GetPIDController();
 	sensor = encoder;
 
 }
@@ -54,7 +54,7 @@ void Chassis::ArcadeDriveThrust(float x, float y, float pedal){
 }
 
 double Chassis::GetSpeed(){
-	return (LeftFront->GetRate()+RightBack->GetRate())/2; //may need to change to a vector calc
+	return 0;//(LeftFront->GetRate()+RightBack->GetRate())/2; //may need to change to a vector calc
 }
 
 void Chassis::SourcePID(PIDSensor sense){
@@ -66,7 +66,7 @@ void Chassis::SourcePID(PIDSensor sense){
 }
 
 bool Chassis::PIDdone(){
-	return (control->GetError() == 0);
+	return false;//(control->GetError() == 0);
 }
 
 double Chassis::ReturnPIDInput()
@@ -76,9 +76,9 @@ double Chassis::ReturnPIDInput()
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
 	double output = 0.0;
 
-	if (sensor == encoder){
-		output = (LeftFront->GetDistance()+RightBack->GetDistance())/2;
-	}
+	//if (sensor == encoder){
+		//output = (LeftFront->GetDistance()+RightBack->GetDistance())/2;
+	//}
 
 	return output;
 }
