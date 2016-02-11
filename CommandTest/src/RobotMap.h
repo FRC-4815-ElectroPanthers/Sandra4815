@@ -31,6 +31,7 @@ const uint32_t BR_ENC_B = 1;
 const uint32_t FL_ENC_A = 2;
 const uint32_t FL_ENC_B = 3;
 
-const int WHEEL_DIA = 6;
+const int WHEEL_DIA = 8;
+const int SHOOTER_DIA = 6;
 
 #endif
