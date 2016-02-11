@@ -13,8 +13,9 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		//autonomousCommand = new ExampleCommand();
+		autonomousCommand = new DriveStraight(5); //5 ft
 		lw = LiveWindow::GetInstance();
+		CommandBase::drivetrain->CalibrateGyro();
 	}
 	
 	void DisabledPeriodic()
@@ -24,8 +25,8 @@ private:
 
 	void AutonomousInit()
 	{
-		//if (autonomousCommand != NULL)
-			//autonomousCommand->Start();
+		if (autonomousCommand != NULL)
+			autonomousCommand->Start();
 	}
 
 	void AutonomousPeriodic()

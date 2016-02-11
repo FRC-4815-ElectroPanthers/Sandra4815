@@ -17,18 +17,18 @@ Chassis::Chassis() :
 	frontLeft = new Talon(FRONTLEFT);
 	backLeft = new Talon(BACKLEFT);
 
-	LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
+	//LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
 	RightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
-	LeftFront->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12); //Feet per Pulse
+	//LeftFront->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12); //Feet per Pulse
 	RightBack->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12);
 
-	LeftFront->SetMinRate(0.001);
+	//LeftFront->SetMinRate(0.001);
 	RightBack->SetMinRate(0.001);
 
 	gyro = new ADXRS450_Gyro();
 
-	//control = GetPIDController();
+	control = GetPIDController();
 	sensor = encoder;
 
 }
@@ -56,7 +56,17 @@ void Chassis::ArcadeDriveThrust(float x, float y, float pedal){
 }
 
 double Chassis::GetSpeed(){
-	return (LeftFront->GetRate()+RightBack->GetRate())/2; //may need to change to a vector calc
+	return RightBack->GetRate(); //may need to change to a vector calc
+	//(LeftFront->GetRate()+
+}
+
+void Chassis::CalibrateGyro(){
+	gyro->Reset();
+	gyro->Calibrate();
+}
+
+void Chassis::ResetGyro(){
+	gyro->Reset();
 }
 
 void Chassis::SourcePID(PIDSensor sense){
@@ -68,7 +78,7 @@ void Chassis::SourcePID(PIDSensor sense){
 }
 
 bool Chassis::PIDdone(){
-	return false;//(control->GetError() == 0);
+	return ((GetSetpoint()-GetPosition()) < 0.001 && (GetSetpoint()-GetPosition()) > -0.001);
 }
 
 double Chassis::ReturnPIDInput()
@@ -78,9 +88,10 @@ double Chassis::ReturnPIDInput()
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
 	double output = 0.0;
 
-	//if (sensor == encoder){
-		//output = (LeftFront->GetDistance()+RightBack->GetDistance())/2;
-	//}
+	if (sensor == encoder){
+		output = RightBack->GetDistance();
+		//LeftFront->GetDistance()+
+	}
 
 	return output;
 }

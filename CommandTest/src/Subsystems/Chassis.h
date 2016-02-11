@@ -8,9 +8,9 @@ class Chassis: public PIDSubsystem
 {
 private:
 	Talon *frontRight, *backRight, *frontLeft, *backLeft;
-	Encoder *LeftFront, *RightBack;
+	Encoder *RightBack; //*LeftFront;
 	ADXRS450_Gyro *gyro;
-	//PIDController control;
+	PIDController *control;
 	enum PIDSensor {encoder, imu} sensor;
 
 public:
@@ -18,6 +18,8 @@ public:
 	void ArcadeDrive(float, float);
 	void ArcadeDriveThrust(float, float, float);
 	double GetSpeed();
+	void CalibrateGyro();
+	void ResetGyro();
 	void SourcePID(PIDSensor);
 	bool PIDdone();
 	double ReturnPIDInput();
