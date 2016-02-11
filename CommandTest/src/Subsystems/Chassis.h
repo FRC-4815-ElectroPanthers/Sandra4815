@@ -9,6 +9,7 @@ class Chassis: public PIDSubsystem
 private:
 	Talon *frontRight, *backRight, *frontLeft, *backLeft;
 	Encoder *LeftFront, *RightBack;
+	ADXRS450_Gyro gyro;
 	//PIDController control;
 	enum PIDSensor {encoder, imu} sensor;
 

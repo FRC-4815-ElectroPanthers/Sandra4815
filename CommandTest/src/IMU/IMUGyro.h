@@ -92,6 +92,9 @@
 /*=========================================================================*/
 
 class IMUGyro: public I2C, public LiveWindowSendable, public PIDSource { //public Gyro,
+    	float pitchRate, yawRate, rollRate,
+			  pitchAngle, yawAngle, rollAngle;
+
 public:
 	IMUGyro(Port, uint8_t);
 	virtual ~IMUGyro();

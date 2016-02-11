@@ -26,6 +26,8 @@ Chassis::Chassis() :
 	LeftFront->SetMinRate(0.001);
 	RightBack->SetMinRate(0.001);
 
+	gyro = new ADXRS450_Gyro();
+
 	//control = GetPIDController();
 	sensor = encoder;
 
