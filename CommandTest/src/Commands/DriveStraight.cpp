@@ -6,12 +6,21 @@ DriveStraight::DriveStraight(double distance)
 	// eg. Requires(chassis);
 	setpoint = distance;
 
-	Requires(CommandBase::drivetrain);
+	Requires(drivetrain);
+}
+
+DriveStraight::DriveStraight(double distance, double timeout){
+	setpoint = distance;
+	SetTimeout(timeout);
+
+	Requires(drivetrain);
 }
 
 // Called just before this Command runs the first time
 void DriveStraight::Initialize()
 {
+	drivetrain->SourcePID(Chassis::encoder_t);
+	drivetrain->ResetEncoder();
 	drivetrain->SetSetpoint(setpoint);
 	drivetrain->Enable();
 }
@@ -25,7 +34,15 @@ void DriveStraight::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool DriveStraight::IsFinished()
 {
-	return drivetrain->PIDdone();
+	bool finished;
+
+	if(timed){
+		finished = drivetrain->PIDdone() || IsTimedOut();
+	}else{
+		finished = drivetrain->PIDdone();
+	}
+
+	return finished;
 }
 
 // Called once after isFinished returns true
@@ -39,5 +56,5 @@ void DriveStraight::End()
 // subsystems is scheduled to run
 void DriveStraight::Interrupted()
 {
-
+	End();
 }

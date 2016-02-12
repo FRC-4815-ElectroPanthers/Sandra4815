@@ -18,18 +18,17 @@ Chassis::Chassis() :
 	backLeft = new Talon(BACKLEFT);
 
 	//LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
-	RightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
+	rightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
 	//LeftFront->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12); //Feet per Pulse
-	RightBack->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12);
+	rightBack->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12);
 
 	//LeftFront->SetMinRate(0.001);
-	RightBack->SetMinRate(0.001);
+	rightBack->SetMinRate(0.001);
 
 	gyro = new ADXRS450_Gyro();
 
-	control = GetPIDController();
-	sensor = encoder;
+	sensor = encoder_t;
 
 }
 
@@ -56,8 +55,16 @@ void Chassis::ArcadeDriveThrust(float x, float y, float pedal){
 }
 
 double Chassis::GetSpeed(){
-	return RightBack->GetRate(); //may need to change to a vector calc
+	return rightBack->GetRate(); //may need to change to a vector calc
 	//(LeftFront->GetRate()+
+}
+
+double Chassis::GetDistanceTravel(){
+	return rightBack->GetDistance();
+}
+
+void Chassis::ResetEncoder(){
+	rightBack->Reset();
 }
 
 void Chassis::CalibrateGyro(){
@@ -69,11 +76,15 @@ void Chassis::ResetGyro(){
 	gyro->Reset();
 }
 
+double Chassis::GetYaw(){
+	return gyro->GetAngle();
+}
+
 void Chassis::SourcePID(PIDSensor sense){
-	if (sense == imu && sensor != imu){
-		sensor = imu;
+	if (sense == gyro_t && sensor != gyro_t){
+		sensor = gyro;
 	}else{
-		sensor = encoder;
+		sensor = encoder_t;
 	}
 }
 
@@ -88,9 +99,11 @@ double Chassis::ReturnPIDInput()
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
 	double output = 0.0;
 
-	if (sensor == encoder){
-		output = RightBack->GetDistance();
+	if (sensor == encoder_t){
+		output = rightBack->GetDistance();
 		//LeftFront->GetDistance()+
+	}else{
+		output = gyro->GetAngle();
 	}
 
 	return output;
@@ -100,10 +113,17 @@ void Chassis::UsePIDOutput(double output)
 {
 	// Use output to drive your system, like a motor
 	// e.g. yourMotor->Set(output);
-	frontRight->Set(output);
-	backRight->Set(output);
-	frontLeft->Set(output);
-	backLeft->Set(output);
+	if(sensor == encoder_t){
+		frontRight->Set(output);
+		backRight->Set(output);
+		frontLeft->Set(output);
+		backLeft->Set(output);
+	}else{
+		frontRight->Set(output);
+		backRight->Set(output);
+		frontLeft->Set(-output);
+		backLeft->Set(-output);
+	}
 }
 
 void Chassis::InitDefaultCommand()

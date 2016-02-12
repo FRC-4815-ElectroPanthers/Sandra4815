@@ -8,8 +8,10 @@ class DriveStraight: public CommandBase
 {
 private:
 	double setpoint;
+	bool timed = false;
 public:
 	DriveStraight(double);
+	DriveStraight(double, double);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

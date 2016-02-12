@@ -8,18 +8,20 @@ class Chassis: public PIDSubsystem
 {
 private:
 	Talon *frontRight, *backRight, *frontLeft, *backLeft;
-	Encoder *RightBack; //*LeftFront;
+	Encoder *rightBack; //*leftFront;
 	ADXRS450_Gyro *gyro;
-	PIDController *control;
-	enum PIDSensor {encoder, imu} sensor;
+	enum PIDSensor {encoder_t, gyro_t} sensor;
 
 public:
 	Chassis();
 	void ArcadeDrive(float, float);
 	void ArcadeDriveThrust(float, float, float);
 	double GetSpeed();
+	double GetDistanceTravel();
+	void ResetEncoder();
 	void CalibrateGyro();
 	void ResetGyro();
+	double GetYaw();
 	void SourcePID(PIDSensor);
 	bool PIDdone();
 	double ReturnPIDInput();

@@ -6,8 +6,11 @@
 
 class DriveTurn: public CommandBase
 {
+	double driveTo;
+	bool timed = false;
 public:
-	DriveTurn();
+	DriveTurn(double);
+	DriveTurn(double, double);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -1,8 +1,8 @@
-#include <Commands/DriveArcade.h>
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "CommandBase.h"
 #include "IterativeRobot.h"
+#include <Commands/DriveStraight.h>
 
 class Robot: public IterativeRobot
 {
@@ -40,8 +40,8 @@ private:
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		//if (autonomousCommand != NULL)
-			//autonomousCommand->Cancel();
+		if (autonomousCommand != NULL)
+			autonomousCommand->Cancel();
 	}
 
 	void TeleopPeriodic()
