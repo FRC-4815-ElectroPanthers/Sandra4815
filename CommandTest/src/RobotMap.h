@@ -26,8 +26,8 @@ const uint32_t BACKRIGHT = 1;
 const uint32_t FRONTLEFT = 2;
 const uint32_t BACKLEFT = 0;
 
-const uint32_t BR_ENC_A = 0;
-const uint32_t BR_ENC_B = 1;
+const uint32_t BR_ENC_A = 1;
+const uint32_t BR_ENC_B = 2;
 const uint32_t FL_ENC_A = 2;
 const uint32_t FL_ENC_B = 3;
 

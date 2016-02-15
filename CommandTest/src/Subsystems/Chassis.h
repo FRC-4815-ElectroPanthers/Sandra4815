@@ -10,9 +10,10 @@ private:
 	Talon *frontRight, *backRight, *frontLeft, *backLeft;
 	Encoder *rightBack; //*leftFront;
 	ADXRS450_Gyro *gyro;
-	enum PIDSensor {encoder_t, gyro_t} sensor;
 
 public:
+	enum PIDSensor {encoder_t, gyro_t} sensor;
+
 	Chassis();
 	void ArcadeDrive(float, float);
 	void ArcadeDriveThrust(float, float, float);
@@ -23,6 +24,7 @@ public:
 	void ResetGyro();
 	double GetYaw();
 	void SourcePID(PIDSensor);
+	void Report();
 	bool PIDdone();
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);

@@ -21,10 +21,12 @@ Chassis::Chassis() :
 	rightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
 	//LeftFront->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12); //Feet per Pulse
-	rightBack->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12);
+	rightBack->SetDistancePerPulse(PI*WHEEL_DIA/4096/12);
+
+	rightBack->SetSamplesToAverage(56);
 
 	//LeftFront->SetMinRate(0.001);
-	rightBack->SetMinRate(0.001);
+	//rightBack->SetMinRate(0.000000001);
 
 	gyro = new ADXRS450_Gyro();
 
@@ -82,7 +84,7 @@ double Chassis::GetYaw(){
 
 void Chassis::SourcePID(PIDSensor sense){
 	if (sense == gyro_t && sensor != gyro_t){
-		sensor = gyro;
+		sensor = gyro_t;
 	}else{
 		sensor = encoder_t;
 	}
@@ -90,6 +92,12 @@ void Chassis::SourcePID(PIDSensor sense){
 
 bool Chassis::PIDdone(){
 	return ((GetSetpoint()-GetPosition()) < 0.001 && (GetSetpoint()-GetPosition()) > -0.001);
+}
+
+void Chassis::Report(){
+	std::cout << "Speed: " << GetSpeed() << " ft/s \n"
+			  << "Distance Traveled: " << GetDistanceTravel() << " ft\n"
+			  << "Relative Heading Angle: " << GetYaw() << " degrees\n\n";
 }
 
 double Chassis::ReturnPIDInput()

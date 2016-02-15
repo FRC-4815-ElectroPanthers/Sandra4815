@@ -3,6 +3,7 @@
 #include "CommandBase.h"
 #include "IterativeRobot.h"
 #include <Commands/DriveStraight.h>
+#include <Commands/DriveArcade.h>
 
 class Robot: public IterativeRobot
 {
@@ -13,9 +14,10 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = new DriveStraight(5); //5 ft
+		autonomousCommand = new DriveArcade(0,1);//DriveStraight(5); //5 ft
 		lw = LiveWindow::GetInstance();
 		CommandBase::drivetrain->CalibrateGyro();
+		CommandBase::drivetrain->ResetEncoder();
 	}
 	
 	void DisabledPeriodic()

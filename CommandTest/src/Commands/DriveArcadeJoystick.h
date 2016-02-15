@@ -6,6 +6,7 @@
 
 class DriveArcadeJoystick: public CommandBase
 {
+	Timer *t;
 public:
 	DriveArcadeJoystick();
 	void Initialize();

@@ -4,12 +4,12 @@ DriveTurn::DriveTurn(double angle)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(drivetrain);
+	Requires(CommandBase::drivetrain);
 	driveTo = angle;
 }
 
 DriveTurn::DriveTurn(double angle, double timeout){
-	Requires(drivetrain);
+	Requires(CommandBase::drivetrain);
 	timed = true;
 	driveTo = angle;
 	SetTimeout(timeout);
