@@ -20,13 +20,13 @@ Chassis::Chassis() :
 	//LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
 	rightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
-	//LeftFront->SetDistancePerPulse((1/4096)*(PI*WHEEL_DIA)/12); //Feet per Pulse
-	rightBack->SetDistancePerPulse(PI*WHEEL_DIA/4096/12);//PI*WHEEL_DIA/4096/12
+	//LeftFront->SetDistancePerPulse(distancePerPulse); //Feet per Pulse
+	rightBack->SetDistancePerPulse(distancePerPulse); //try dividing by 1024 instead
 
 	rightBack->SetSamplesToAverage(56);
 
 	//LeftFront->SetMinRate(0.001);
-	//rightBack->SetMinRate(0.000000001);
+	rightBack->SetMinRate(0.0001);
 
 	gyro = new ADXRS450_Gyro();
 
@@ -62,7 +62,8 @@ double Chassis::GetSpeed(){
 }
 
 double Chassis::GetDistanceTravel(){
-	return rightBack->GetDistance();
+	return rightBack->GetRaw()*distancePerPulse;
+	//rightBack->GetDistance() has weird scaling issues
 }
 
 void Chassis::ResetEncoder(){
@@ -97,7 +98,6 @@ bool Chassis::PIDdone(){
 void Chassis::Report(){
 	std::cout << "Speed: " << GetSpeed() << " ft/s \n"
 			  << "Distance Traveled: " << GetDistanceTravel() << " ft\n"
-			  << "Raw Count: " << rightBack->GetRaw()*distancePerPulse << "\n"
 			  << "Relative Heading Angle: " << GetYaw() << " degrees\n\n";
 }
 
@@ -109,8 +109,7 @@ double Chassis::ReturnPIDInput()
 	double output = 0.0;
 
 	if (sensor == encoder_t){
-		output = rightBack->GetDistance();
-		//LeftFront->GetDistance()+
+		output = GetDistanceTravel();
 	}else{
 		output = gyro->GetAngle();
 	}

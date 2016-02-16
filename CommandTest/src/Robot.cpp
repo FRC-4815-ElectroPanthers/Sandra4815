@@ -14,7 +14,7 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = new DriveArcade(0,1);//DriveStraight(5); //5 ft
+		autonomousCommand = new DriveStraight(6); //6 ft
 		lw = LiveWindow::GetInstance();
 		CommandBase::drivetrain->CalibrateGyro();
 		CommandBase::drivetrain->ResetEncoder();
