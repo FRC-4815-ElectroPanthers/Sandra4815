@@ -23,6 +23,10 @@ void DriveArcadeJoystick::Execute()
 	if(t->HasPeriodPassed(2.0)){
 		drivetrain->Report();
 	}
+
+	if(oi->joy1->GetRawButton(1)){
+		drivetrain->ResetEncoder();
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()

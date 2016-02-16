@@ -3,6 +3,7 @@
 
 #include "Commands/PIDSubsystem.h"
 #include "WPILib.h"
+#include "../RobotMap.h"
 
 class Chassis: public PIDSubsystem
 {
@@ -10,6 +11,7 @@ private:
 	Talon *frontRight, *backRight, *frontLeft, *backLeft;
 	Encoder *rightBack; //*leftFront;
 	ADXRS450_Gyro *gyro;
+	double const distancePerPulse = PI/8192;
 
 public:
 	enum PIDSensor {encoder_t, gyro_t} sensor;
