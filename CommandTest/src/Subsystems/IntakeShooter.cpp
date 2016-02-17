@@ -10,6 +10,14 @@ IntakeShooter::IntakeShooter() :
 	// SetSetpoint() -  Sets where the PID controller should move the system
 	//                  to
 	// Enable() - Enables the PID controller.
+
+	rightWheel = new VictorSP(RIGHTSHOOTER);
+	leftWheel = new VictorSP(LEFTSHOOTER);
+	arm = new CanTalonSRX();
+	push = new Servo(SERVO);
+
+	RSEnc = new Encoder(RS_ENC_A, RS_ENC_B, false, Encoder::EncodingType::k4X);
+	LSEnc = new Encoder(LS_ENC_A, LS_ENC_B, false, Encoder::EncodingType::k4X);
 }
 
 double IntakeShooter::ReturnPIDInput()

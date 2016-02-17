@@ -20,6 +20,8 @@ Chassis::Chassis() :
 	//LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
 	rightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
+	gyro = new ADXRS450_Gyro();
+
 	//LeftFront->SetDistancePerPulse(distancePerPulse); //Feet per Pulse
 	rightBack->SetDistancePerPulse(distancePerPulse); //try dividing by 1024 instead
 
@@ -28,10 +30,7 @@ Chassis::Chassis() :
 	//LeftFront->SetMinRate(0.001);
 	rightBack->SetMinRate(0.0001);
 
-	gyro = new ADXRS450_Gyro();
-
 	sensor = encoder_t;
-
 }
 
 void Chassis::ArcadeDrive(float x, float y){ //may want to change to a vector calculation

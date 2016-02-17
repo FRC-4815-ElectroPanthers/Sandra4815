@@ -6,6 +6,10 @@
 
 class IntakeShooter: public PIDSubsystem
 {
+	VictorSP *rightWheel, *leftWheel;
+	CanTalonSRX *arm;
+	Servo *push;
+	Encoder *LSEnc, *RSEnc;
 public:
 	IntakeShooter();
 	double ReturnPIDInput();
