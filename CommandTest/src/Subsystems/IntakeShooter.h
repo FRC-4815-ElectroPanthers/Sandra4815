@@ -10,6 +10,7 @@ class IntakeShooter: public PIDSubsystem
 	CanTalonSRX *arm;
 	Servo *push;
 	Encoder *LSEnc, *RSEnc;
+	USBCamera *cam;
 public:
 	IntakeShooter();
 	double ReturnPIDInput();

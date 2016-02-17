@@ -4,6 +4,7 @@
 #include <string>
 #include "Commands/Command.h"
 #include "Subsystems/Chassis.h"
+#include "Subsystems/IntakeShooter.h"
 #include "OI.h"
 #include "WPILib.h"
 
@@ -21,6 +22,7 @@ public:
 	// Create a single static instance of all of your subsystems
 	static Chassis *drivetrain;
 	static OI *oi;
+	static IntakeShooter *shooter;
 };
 
 #endif
