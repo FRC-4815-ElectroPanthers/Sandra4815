@@ -18,15 +18,31 @@ void DriveArcadeJoystick::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveArcadeJoystick::Execute()
 {
-	drivetrain->ArcadeDrive(-oi->joy1->GetRawAxis(1), oi->joy1->GetRawAxis(0));
+	if(oi->joy1->GetRawButton(1)){
+		drivetrain->ResetEncoder();
+	}
+
+	double a = 0.0;
+
+	if(oi->joy1->GetRawButton(8) && a != 1.0){
+		a += 0.1;
+	}
+
+	if(oi->joy1->GetRawButton(9) && a != 0.0){
+		a -= 0.1;
+	}
+
+	float xAdjus = a*pow(-oi->joy1->GetRawAxis(1),3) + (1-a)*(-oi->joy1->GetRawAxis(1));
+	float yAdjus = a*pow(oi->joy1->GetRawAxis(0),3) + (1-a)*(oi->joy1->GetRawAxis(0));
+
+	drivetrain->ArcadeDrive(xAdjus, yAdjus);
 
 	if(t->HasPeriodPassed(2.0)){
 		drivetrain->Report();
 	}
 
-	if(oi->joy1->GetRawButton(1)){
-		drivetrain->ResetEncoder();
-	}
+	SmartDashboard::PutNumber("DB/Slider 0", a*5);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

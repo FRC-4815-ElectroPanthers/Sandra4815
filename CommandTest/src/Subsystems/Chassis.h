@@ -9,9 +9,9 @@ class Chassis: public PIDSubsystem
 {
 private:
 	Talon *frontRight, *backRight, *frontLeft, *backLeft;
-	Encoder *rightBack; //*leftFront;
+	Encoder *right; //*leftFront;
 	ADXRS450_Gyro *gyro;
-	double const distancePerPulse = PI/8192;
+	double const DISTANCE_PER_PULSE = PI/8192;
 
 public:
 	enum PIDSensor {encoder_t, gyro_t} sensor;

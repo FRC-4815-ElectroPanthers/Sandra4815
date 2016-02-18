@@ -4,7 +4,7 @@
 #include "LiveWindow/LiveWindow.h"
 #include "Commands/DriveArcadeJoystick.h"
 
-Chassis::Chassis() :
+Chassis::Chassis():
 		PIDSubsystem("Chassis", 1.0, 0.0, 0.0)
 {
 	// Use these to get going:
@@ -18,17 +18,17 @@ Chassis::Chassis() :
 	backLeft = new Talon(BACKLEFT);
 
 	//LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
-	rightBack = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
+	right = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
 	gyro = new ADXRS450_Gyro();
 
 	//LeftFront->SetDistancePerPulse(distancePerPulse); //Feet per Pulse
-	rightBack->SetDistancePerPulse(distancePerPulse); //try dividing by 1024 instead
+	right->SetDistancePerPulse(DISTANCE_PER_PULSE); //try dividing by 1024 instead
 
-	rightBack->SetSamplesToAverage(56);
+	right->SetSamplesToAverage(56);
 
 	//LeftFront->SetMinRate(0.001);
-	rightBack->SetMinRate(0.0001);
+	right->SetMinRate(0.0001);
 
 	sensor = encoder_t;
 }
@@ -56,17 +56,17 @@ void Chassis::ArcadeDriveThrust(float x, float y, float pedal){
 }
 
 double Chassis::GetSpeed(){
-	return rightBack->GetRate(); //may need to change to a vector calc
+	return right->GetRate(); //may need to change to a vector calc
 	//(LeftFront->GetRate()+
 }
 
 double Chassis::GetDistanceTravel(){
-	return rightBack->GetRaw()*distancePerPulse;
+	return right->GetRaw()*DISTANCE_PER_PULSE;
 	//rightBack->GetDistance() has weird scaling issues
 }
 
 void Chassis::ResetEncoder(){
-	rightBack->Reset();
+	right->Reset();
 }
 
 void Chassis::CalibrateGyro(){
