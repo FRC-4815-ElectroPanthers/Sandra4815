@@ -15,13 +15,9 @@ IntakeShooter::IntakeShooter() :
 	leftWheel = new VictorSP(LEFTSHOOTER);
 	arm = new CanTalonSRX();
 	push = new Servo(SERVO);
-	cam = new USBCamera(USBCamera::kDefaultCameraName, true);
 
 	RSEnc = new Encoder(RS_ENC_A, RS_ENC_B, false, Encoder::EncodingType::k4X);
 	LSEnc = new Encoder(LS_ENC_A, LS_ENC_B, false, Encoder::EncodingType::k4X);
-
-	cam->OpenCamera();
-	cam->StartCapture();
 }
 
 double IntakeShooter::ReturnPIDInput()

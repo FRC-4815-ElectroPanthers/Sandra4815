@@ -18,6 +18,7 @@ private:
 		lw = LiveWindow::GetInstance();
 		CommandBase::drivetrain->CalibrateGyro();
 		CommandBase::drivetrain->ResetEncoder();
+		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 	}
 	
 	void DisabledPeriodic()
