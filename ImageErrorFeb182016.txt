@@ -1,0 +1,163 @@
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  1  Assertion "data[0] == 0xff && data[1] == 0xd8" failed.
+  GetJpegSize [USBCamera.cpp:38] 
+ Error at GetJpegSize [USBCamera.cpp:38]: Assertion "data[0] == 0xff && data[1] == 0xd8" failed. 
+  
+ 	at /home/lvuser/FRCUserProgram() [0x46bb4] 
+ 	at /home/lvuser/FRCUserProgram() [0x4969c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  -1074360316  -1074360316: IMAQdxGetImageData  GetImageData [USBCamera.cpp:328] 
+ Error at GetImageData [USBCamera.cpp:328]: -1074360316: IMAQdxGetImageData 
+ 	at /home/lvuser/FRCUserProgram() [0x4968c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  1  Assertion "data[0] == 0xff && data[1] == 0xd8" failed.
+  GetJpegSize [USBCamera.cpp:38] 
+ Error at GetJpegSize [USBCamera.cpp:38]: Assertion "data[0] == 0xff && data[1] == 0xd8" failed. 
+  
+ 	at /home/lvuser/FRCUserProgram() [0x46bb4] 
+ 	at /home/lvuser/FRCUserProgram() [0x4969c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  -1074360316  -1074360316: IMAQdxGetImageData  GetImageData [USBCamera.cpp:328] 
+ Error at GetImageData [USBCamera.cpp:328]: -1074360316: IMAQdxGetImageData 
+ 	at /home/lvuser/FRCUserProgram() [0x4968c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  1  Assertion "data[0] == 0xff && data[1] == 0xd8" failed.
+  GetJpegSize [USBCamera.cpp:38] 
+ Error at GetJpegSize [USBCamera.cpp:38]: Assertion "data[0] == 0xff && data[1] == 0xd8" failed. 
+  
+ 	at /home/lvuser/FRCUserProgram() [0x46bb4] 
+ 	at /home/lvuser/FRCUserProgram() [0x4969c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  -1074360316  -1074360316: IMAQdxGetImageData  GetImageData [USBCamera.cpp:328] 
+ Error at GetImageData [USBCamera.cpp:328]: -1074360316: IMAQdxGetImageData 
+ 	at /home/lvuser/FRCUserProgram() [0x4968c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  1  Assertion "data[0] == 0xff && data[1] == 0xd8" failed.
+  GetJpegSize [USBCamera.cpp:38] 
+ Error at GetJpegSize [USBCamera.cpp:38]: Assertion "data[0] == 0xff && data[1] == 0xd8" failed. 
+  
+ 	at /home/lvuser/FRCUserProgram() [0x46bb4] 
+ 	at /home/lvuser/FRCUserProgram() [0x4969c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  -1074360316  -1074360316: IMAQdxGetImageData  GetImageData [USBCamera.cpp:328] 
+ Error at GetImageData [USBCamera.cpp:328]: -1074360316: IMAQdxGetImageData 
+ 	at /home/lvuser/FRCUserProgram() [0x4968c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  1  Assertion "data[0] == 0xff && data[1] == 0xd8" failed.
+  GetJpegSize [USBCamera.cpp:38] 
+ Error at GetJpegSize [USBCamera.cpp:38]: Assertion "data[0] == 0xff && data[1] == 0xd8" failed. 
+  
+ 	at /home/lvuser/FRCUserProgram() [0x46bb4] 
+ 	at /home/lvuser/FRCUserProgram() [0x4969c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  -1074360316  -1074360316: IMAQdxGetImageData  GetImageData [USBCamera.cpp:328] 
+ Error at GetImageData [USBCamera.cpp:328]: -1074360316: IMAQdxGetImageData 
+ 	at /home/lvuser/FRCUserProgram() [0x4968c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  1  Assertion "data[0] == 0xff && data[1] == 0xd8" failed.
+  GetJpegSize [USBCamera.cpp:38] 
+ Error at GetJpegSize [USBCamera.cpp:38]: Assertion "data[0] == 0xff && data[1] == 0xd8" failed. 
+  
+ 	at /home/lvuser/FRCUserProgram() [0x46bb4] 
+ 	at /home/lvuser/FRCUserProgram() [0x4969c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  -1074360316  -1074360316: IMAQdxGetImageData  GetImageData [USBCamera.cpp:328] 
+ Error at GetImageData [USBCamera.cpp:328]: -1074360316: IMAQdxGetImageData 
+ 	at /home/lvuser/FRCUserProgram() [0x4968c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ERROR  1  Assertion "data[0] == 0xff && data[1] == 0xd8" failed.
+  GetJpegSize [USBCamera.cpp:38] 
+ Error at GetJpegSize [USBCamera.cpp:38]: Assertion "data[0] == 0xff && data[1] == 0xd8" failed. 
+  
+ 	at /home/lvuser/FRCUserProgram() [0x46bb4] 
+ 	at /home/lvuser/FRCUserProgram() [0x4969c] 
+ 	at CameraServer::AutoCapture() 
+ 	at /home/lvuser/FRCUserProgram() [0x45f38] 
+ 	at /home/lvuser/FRCUserProgram() [0x45dc4] 
+ 	at /home/lvuser/FRCUserProgram() [0x45b5c] 
+ 	at /home/lvuser/FRCUserProgram() [0x459d0] 
+ 	at /opt/GenICam_v2_3/bin/Linux_armv7-a/libstdc++.so.6(+0xa2cb0) [0xb5e28cb0] 
+  
+ ➔ Launching «'/home/lvuser/FRCUserProgram'» 
+Warning  44003  FRC:  No robot code is currently running.  Driver Station 
+ ➔ Launching «'/home/lvuser/FRCUserProgram'» 
+  
+ NT: server: client CONNECTED: 10.48.15.148 port 55840 
+ execvp: Permission denied 
+ ********** Robot program starting ********** 
+ [HAL] Starting task FRC_DriverStation... 
+ Default DisabledInit() method... Overload me! 
