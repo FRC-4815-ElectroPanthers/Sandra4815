@@ -6,7 +6,7 @@
 class OI
 {
 public:
-	Joystick *joy1;
+	Joystick *drive, *operate;
 	OI();
 };
 

@@ -19,28 +19,28 @@ void DriveArcadeJoystick::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveArcadeJoystick::Execute()
 {
-	if(oi->joy1->GetRawButton(1)){
+	if(oi->drive->GetRawButton(1)){
 		drivetrain->ResetEncoder();
 	}
 
-	if(oi->joy1->GetRawButton(8) && sensativity != 1.0){
+	if(oi->drive->GetRawButton(8) && sensativity != 1.0 && t->HasPeriodPassed(0.5)){
 		sensativity += 0.1;
 	}
 
-	if(oi->joy1->GetRawButton(9) && sensativity != 0.0){
+	if(oi->drive->GetRawButton(9) && sensativity != 0.0 && t->HasPeriodPassed(0.5)){
 		sensativity -= 0.1;
 	}
 
-	float xAdjus = sensativity*pow(-oi->joy1->GetRawAxis(1),3) + (1-sensativity)*(-oi->joy1->GetRawAxis(1));
-	float yAdjus = sensativity*pow(oi->joy1->GetRawAxis(0),3) + (1-sensativity)*(oi->joy1->GetRawAxis(0));
+	SmartDashboard::PutNumber("DB/Slider 0", sensativity*5);
+
+	float xAdjus = sensativity*pow(-oi->drive->GetRawAxis(1),3) + (1-sensativity)*(-oi->drive->GetRawAxis(1));
+	float yAdjus = sensativity*pow(oi->drive->GetRawAxis(0),3) + (1-sensativity)*(oi->drive->GetRawAxis(0));
 
 	drivetrain->ArcadeDrive(xAdjus, yAdjus);
 
 	if(t->HasPeriodPassed(2.0)){
 		drivetrain->Report();
 	}
-
-	SmartDashboard::PutNumber("DB/Slider 0", sensativity*5);
 
 }
 

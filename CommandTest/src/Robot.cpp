@@ -12,9 +12,7 @@ class Robot: public IterativeRobot
 private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
-	Image *image;
 	std::shared_ptr<USBCamera> cam;
-	int brightness;
 
 	void RobotInit()
 	{
@@ -24,6 +22,7 @@ private:
 		CommandBase::drivetrain->CalibrateGyro();
 		CommandBase::drivetrain->ResetEncoder();
 		cam = std::make_shared<USBCamera>("cam0", false);
+
 		cam->SetBrightness(25);
 		cam->UpdateSettings();
 		cam->StopCapture();
