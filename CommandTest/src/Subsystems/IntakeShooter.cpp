@@ -13,7 +13,7 @@ IntakeShooter::IntakeShooter() :
 
 	rightWheel = new VictorSP(RIGHTSHOOTER);
 	leftWheel = new VictorSP(LEFTSHOOTER);
-	arm = new CanTalonSRX(0);
+	arm = new CANTalon(1);//TODO: Go into RIO Webdash and change Talon ID
 	push = new Servo(SERVO);
 
 	RSEnc = new Encoder(RS_ENC_A, RS_ENC_B, false, Encoder::EncodingType::k4X);
@@ -21,6 +21,16 @@ IntakeShooter::IntakeShooter() :
 
 	RSEnc->SetDistancePerPulse(DISTANCE_PER_PULSE);
 	LSEnc->SetDistancePerPulse(DISTANCE_PER_PULSE);
+
+	arm->SetPosition(arm->GetPulseWidthPosition());
+
+	arm->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
+	arm->SetSensorDirection(false);
+
+	arm->SetAllowableClosedLoopErr(0);
+	arm->SetP(0.0);
+	arm->SetI(0.0);
+	arm->SetD(0.0);
 }
 
 void IntakeShooter::Shoot(){
@@ -32,23 +42,29 @@ void IntakeShooter::Retract(){
 }
 
 void IntakeShooter::RightSpinUP(){
-
+	rightWheel->Set(1.0);
 }
 
 void IntakeShooter::LeftSpinUP(){
-
+	leftWheel->Set(1.0);
 }
 
-void IntakeShooter::Intake(){
-
-}
-
-void IntakeShooter::SpitOut(){
-
-}
+/*
+ *void IntakeShooter::Intake(){}
+ *
+ *void IntakeShooter::SpitOut(){}
+ */
 
 void IntakeShooter::MoveArmTo(){
 
+}
+
+void IntakeShooter::MoveThrottle(double throttle){
+	if(arm->GetControlMode() != CANSpeedController::kPercentVbus){
+		arm->SetVoltageRampRate(RAMP_UP_RATE);
+		arm->SetControlMode(CANSpeedController::kPercentVbus);
+	}
+	arm->Set(throttle);
 }
 
 double IntakeShooter::RightShooterSpeed(){
@@ -60,7 +76,7 @@ double IntakeShooter::LeftShooterSpeed(){
 }
 
 double IntakeShooter::ArmAngle(){
-
+	return arm->GetPosition()*360;
 }
 
 double IntakeShooter::ReturnPIDInput()

@@ -7,19 +7,21 @@
 class IntakeShooter: public PIDSubsystem
 {
 	VictorSP *rightWheel, *leftWheel;
-	CanTalonSRX *arm;
+	CANTalon *arm;
 	Servo *push;
 	Encoder *LSEnc, *RSEnc;
 	double const DISTANCE_PER_PULSE = 360/1024; //360 Degrees Per 1024 Pulses
+	double const RAMP_UP_RATE = 6.0; //Voltage Ramp Up Per Sec
 public:
 	IntakeShooter();
 	void Shoot();
 	void Retract();
 	void RightSpinUP();
 	void LeftSpinUP();
-	void Intake();
-	void SpitOut();
+	//void Intake();
+	//void SpitOut();
 	void MoveArmTo();
+	void MoveThrottle(double);
 	double RightShooterSpeed();
 	double LeftShooterSpeed();
 	double ArmAngle();
