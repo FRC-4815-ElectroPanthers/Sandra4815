@@ -55,8 +55,39 @@ void IntakeShooter::LeftSpinUP(){
  *void IntakeShooter::SpitOut(){}
  */
 
-void IntakeShooter::MoveArmTo(){
+void IntakeShooter::MoveArmTo(position k){
+	if(arm->GetControlMode() != CANSpeedController::kPosition){
+		arm->SetControlMode(CANSpeedController::kPosition);
+	}
 
+	switch(k){
+	case kStow:
+		arm->Set(90);
+		break;
+	case kBackShot:
+		arm->Set(45);
+		break;
+	case kFrontShot:
+		arm->Set(135);
+		break;
+	case kInOutTake:
+		arm ->Set(-45);
+		break;
+	}
+}
+
+void IntakeShooter::MoveArmTo(double angle){
+	if(arm->GetControlMode() != CANSpeedController::kPosition){
+			arm->SetControlMode(CANSpeedController::kPosition);
+		}
+	arm->Set(angle);
+}
+
+void IntakeShooter::MoveArmToJoystick(double input){
+	if(arm->GetControlMode() != CANSpeedController::kPosition){
+		arm->SetControlMode(CANSpeedController::kPosition);
+	}
+	arm->Set(input*360); //map joystick to degrees of rotation
 }
 
 void IntakeShooter::MoveThrottle(double throttle){
@@ -84,13 +115,15 @@ double IntakeShooter::ReturnPIDInput()
 	// Return your input value for the PID loop
 	// e.g. a sensor, like a potentiometer:
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
-	return 0.0;
+	return (RightShooterSpeed() + LeftShooterSpeed())/2;
 }
 
 void IntakeShooter::UsePIDOutput(double output)
 {
 	// Use output to drive your system, like a motor
 	// e.g. yourMotor->Set(output);
+	rightWheel->Set(output);
+	leftWheel->Set(output);
 }
 
 void IntakeShooter::InitDefaultCommand()
