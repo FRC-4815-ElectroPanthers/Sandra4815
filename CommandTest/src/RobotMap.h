@@ -28,6 +28,7 @@ const uint32_t BACKLEFT = 0;
 const uint32_t SERVO = 4;
 const uint32_t RIGHTSHOOTER = 5;
 const uint32_t LEFTSHOOTER = 6;
+const int ARM = 1;
 
 const uint32_t BR_ENC_A = 1;
 const uint32_t BR_ENC_B = 2;
@@ -37,6 +38,8 @@ const uint32_t RS_ENC_A = 6;
 const uint32_t RS_ENC_B = 7;
 const uint32_t LS_ENC_A = 8;
 const uint32_t LS_ENC_B = 9;
+
+const uint32_t RANGEFINDER = 0;
 
 const int WHEEL_DIA = 8;
 const int SHOOTER_DIA = 6;

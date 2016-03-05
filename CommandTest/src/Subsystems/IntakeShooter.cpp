@@ -13,11 +13,13 @@ IntakeShooter::IntakeShooter() :
 
 	rightWheel = new VictorSP(RIGHTSHOOTER);
 	leftWheel = new VictorSP(LEFTSHOOTER);
-	arm = new CANTalon(1);//TODO: Go into RIO Webdash and change Talon ID
+	arm = new CANTalon(ARM);//TODO: Go into RIO Webdash and change Talon ID
 	push = new Servo(SERVO);
 
 	RSEnc = new Encoder(RS_ENC_A, RS_ENC_B, false, Encoder::EncodingType::k4X);
 	LSEnc = new Encoder(LS_ENC_A, LS_ENC_B, false, Encoder::EncodingType::k4X);
+
+	//rangefinder = new Ultrasonic(RANGEFINDER);
 
 	shot = false;
 	shoot = false;
@@ -44,12 +46,20 @@ void IntakeShooter::Retract(){
 	push->SetAngle(0);
 }
 
-void IntakeShooter::RightSpinUP(){
-	rightWheel->Set(1.0);
+void IntakeShooter::RightSpinUP(bool reverse){
+	if(reverse){
+		rightWheel->Set(-1.0);
+	}else{
+		rightWheel->Set(1.0);
+	}
 }
 
-void IntakeShooter::LeftSpinUP(){
-	leftWheel->Set(1.0);
+void IntakeShooter::LeftSpinUP(bool reverse){
+	if(reverse){
+		leftWheel->Set(-1.0);
+	}else{
+		leftWheel->Set(1.0);
+	}
 }
 
 void IntakeShooter::RightSpinStop(){
@@ -146,6 +156,10 @@ bool IntakeShooter::DidShoot(){
 
 bool IntakeShooter::ReadyToShoot(){
 	return shoot;
+}
+
+bool IntakeShooter::HasBall(){
+	return false;
 }
 
 void IntakeShooter::UsePIDOutput(double output)

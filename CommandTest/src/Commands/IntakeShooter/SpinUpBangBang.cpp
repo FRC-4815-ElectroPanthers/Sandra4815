@@ -17,13 +17,13 @@ void SpinUpBangBang::Initialize()
 void SpinUpBangBang::Execute()
 {
 	if(CommandBase::shooter->RightShooterSpeed() != 18000){
-		CommandBase::shooter->RightSpinUP();
+		CommandBase::shooter->RightSpinUP(false);
 	}else{
 		CommandBase::shooter->RightSpinStop();
 	}
 
 	if(CommandBase::shooter->LeftShooterSpeed() != 18000){
-		CommandBase::shooter->LeftSpinUP();
+		CommandBase::shooter->LeftSpinUP(true);
 	}else{
 		CommandBase::shooter->LeftSpinStop();
 	}
@@ -37,7 +37,7 @@ void SpinUpBangBang::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool SpinUpBangBang::IsFinished()
 {
-	return false;
+	return !(CommandBase::shooter->HasBall());
 }
 
 // Called once after isFinished returns true
