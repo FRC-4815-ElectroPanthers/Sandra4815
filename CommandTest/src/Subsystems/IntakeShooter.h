@@ -10,6 +10,7 @@ class IntakeShooter: public PIDSubsystem
 	CANTalon *arm;
 	Servo *push;
 	Encoder *LSEnc, *RSEnc;
+	bool shoot, shot;
 	double const DISTANCE_PER_PULSE = 360/1024; //360 Degrees Per 1024 Pulses
 	double const RAMP_UP_RATE = 6.0; //Voltage Ramp Up Per Sec
 public:
@@ -20,8 +21,12 @@ public:
 	void Retract();
 	void RightSpinUP();
 	void LeftSpinUP();
+	void RightSpinStop();
+	void LeftSpinStop();
 	//void Intake();
 	//void SpitOut();
+	void JustShot(bool);
+	void ReadyToShoot(bool);
 	void MoveArmTo(Position);
 	void MoveArmTo(double);
 	void MoveArmToJoystick(double);
@@ -30,6 +35,8 @@ public:
 	double LeftShooterSpeed();
 	double ArmAngle();
 	double ReturnPIDInput();
+	bool DidShoot();
+	bool ReadyToShoot();
 	void UsePIDOutput(double output);
 	void InitDefaultCommand();
 };

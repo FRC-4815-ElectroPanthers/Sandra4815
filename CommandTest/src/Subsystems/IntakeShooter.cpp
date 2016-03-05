@@ -19,6 +19,9 @@ IntakeShooter::IntakeShooter() :
 	RSEnc = new Encoder(RS_ENC_A, RS_ENC_B, false, Encoder::EncodingType::k4X);
 	LSEnc = new Encoder(LS_ENC_A, LS_ENC_B, false, Encoder::EncodingType::k4X);
 
+	shot = false;
+	shoot = false;
+
 	RSEnc->SetDistancePerPulse(DISTANCE_PER_PULSE);
 	LSEnc->SetDistancePerPulse(DISTANCE_PER_PULSE);
 
@@ -47,6 +50,22 @@ void IntakeShooter::RightSpinUP(){
 
 void IntakeShooter::LeftSpinUP(){
 	leftWheel->Set(1.0);
+}
+
+void IntakeShooter::RightSpinStop(){
+	rightWheel->Set(0.0);
+}
+
+void IntakeShooter::LeftSpinStop(){
+	leftWheel->Set(0.0);
+}
+
+void IntakeShooter::JustShot(bool status){
+	shot = status;
+}
+
+void IntakeShooter::ReadyToShoot(bool status){
+	shoot = status;
 }
 
 /*
@@ -116,6 +135,17 @@ double IntakeShooter::ReturnPIDInput()
 	// e.g. a sensor, like a potentiometer:
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
 	return (RightShooterSpeed() + LeftShooterSpeed())/2;
+}
+
+bool IntakeShooter::DidShoot(){
+	if(push->GetAngle() == 90){
+		shot = true;
+	}
+	return shot;
+}
+
+bool IntakeShooter::ReadyToShoot(){
+	return shoot;
 }
 
 void IntakeShooter::UsePIDOutput(double output)
