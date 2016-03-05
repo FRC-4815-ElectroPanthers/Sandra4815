@@ -1,39 +1,42 @@
-#include <Commands/DriveArcadeThrust.h>
+#include <Commands/Chassis/DriveArcade.h>
 
-DriveArcadeThrust::DriveArcadeThrust()
+DriveArcade::DriveArcade(float x, float y)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires(CommandBase::drivetrain);
+	xDirc = x;
+	yDirc = y;
 }
 
 // Called just before this Command runs the first time
-void DriveArcadeThrust::Initialize()
+void DriveArcade::Initialize()
 {
-
+	//There's nothing to initialize here, just a comment
+	//Oh so you have to commit and push!
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveArcadeThrust::Execute()
+void DriveArcade::Execute()
 {
-	CommandBase::drivetrain->ArcadeDriveThrust(oi->drive->GetRawAxis(0), oi->drive->GetRawAxis(3)+1.0,-1*oi->drive->GetRawAxis(4)+1.0 );
+	CommandBase::drivetrain->ArcadeDrive(xDirc, yDirc);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveArcadeThrust::IsFinished()
+bool DriveArcade::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void DriveArcadeThrust::End()
+void DriveArcade::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DriveArcadeThrust::Interrupted()
+void DriveArcade::Interrupted()
 {
 
 }

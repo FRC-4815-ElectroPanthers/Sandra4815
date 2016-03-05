@@ -55,7 +55,7 @@ void IntakeShooter::LeftSpinUP(){
  *void IntakeShooter::SpitOut(){}
  */
 
-void IntakeShooter::MoveArmTo(position k){
+void IntakeShooter::MoveArmTo(Position k){
 	if(arm->GetControlMode() != CANSpeedController::kPosition){
 		arm->SetControlMode(CANSpeedController::kPosition);
 	}
