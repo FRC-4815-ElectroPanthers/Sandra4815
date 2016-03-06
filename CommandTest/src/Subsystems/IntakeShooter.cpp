@@ -2,6 +2,7 @@
 #include "../RobotMap.h"
 #include "SmartDashboard/SmartDashboard.h"
 #include "LiveWindow/LiveWindow.h"
+#include "../Commands/IntakeShooter/DriveArmJoystick.h"
 
 IntakeShooter::IntakeShooter() :
 		PIDSubsystem("IntakeShooter", 1.0, 0.0, 0.0)
@@ -19,7 +20,7 @@ IntakeShooter::IntakeShooter() :
 	RSEnc = new Encoder(RS_ENC_A, RS_ENC_B, false, Encoder::EncodingType::k4X);
 	LSEnc = new Encoder(LS_ENC_A, LS_ENC_B, false, Encoder::EncodingType::k4X);
 
-	//rangefinder = new Ultrasonic(RANGEFINDER);
+	rangefinder = new AnalogInput(RANGEFINDER);
 
 	shot = false;
 	shoot = false;
@@ -91,16 +92,16 @@ void IntakeShooter::MoveArmTo(Position k){
 
 	switch(k){
 	case kStow:
-		arm->Set(90);
+		arm->Set(STOW_ANGLE);
 		break;
 	case kBackShot:
-		arm->Set(45);
+		arm->Set(FRONT_SHOT_ANGLE);
 		break;
 	case kFrontShot:
-		arm->Set(135);
+		arm->Set(BACK_SHOT_ANGLE);
 		break;
 	case kInOutTake:
-		arm ->Set(-45);
+		arm ->Set(INOUTTAKE_ANGLE);
 		break;
 	}
 }
@@ -139,6 +140,11 @@ double IntakeShooter::ArmAngle(){
 	return arm->GetPosition()*360;
 }
 
+double IntakeShooter::RangeFinderDistance(){
+	return (rangefinder->GetValue() >> 2)*5.0/10/2.54;
+	//return rangefinder distance in Inches
+}
+
 double IntakeShooter::ReturnPIDInput()
 {
 	// Return your input value for the PID loop
@@ -159,6 +165,9 @@ bool IntakeShooter::ReadyToShoot(){
 }
 
 bool IntakeShooter::HasBall(){
+	if (RangeFinderDistance() < 16){
+		return true;
+	}
 	return false;
 }
 
@@ -173,5 +182,5 @@ void IntakeShooter::UsePIDOutput(double output)
 void IntakeShooter::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//setDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new DriveArmJoystick());
 }

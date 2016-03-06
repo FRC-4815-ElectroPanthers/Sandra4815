@@ -6,8 +6,9 @@
 
 class DriveArmPosition: public CommandBase
 {
+	IntakeShooter::Position position;
 public:
-	DriveArmPosition();
+	DriveArmPosition(IntakeShooter::Position);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

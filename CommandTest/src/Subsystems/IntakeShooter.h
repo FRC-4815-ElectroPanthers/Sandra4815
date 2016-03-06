@@ -10,7 +10,7 @@ class IntakeShooter: public PIDSubsystem
 	CANTalon *arm;
 	Servo *push;
 	Encoder *LSEnc, *RSEnc;
-	//Ultrasonic *rangefinder;
+	AnalogInput *rangefinder;
 
 	bool shoot, shot;
 	double const DISTANCE_PER_PULSE = 360/1024; //360 Degrees Per 1024 Pulses
@@ -36,6 +36,7 @@ public:
 	double RightShooterSpeed();
 	double LeftShooterSpeed();
 	double ArmAngle();
+	double RangeFinderDistance();
 	double ReturnPIDInput();
 	bool DidShoot();
 	bool ReadyToShoot();

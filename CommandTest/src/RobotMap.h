@@ -44,4 +44,10 @@ const uint32_t RANGEFINDER = 0;
 const int WHEEL_DIA = 8;
 const int SHOOTER_DIA = 6;
 
+const double STOW_ANGLE = 90;
+const double FRONT_SHOT_ANGLE = 135;
+const double BACK_SHOT_ANGLE = 45;
+const double INOUTTAKE_ANGLE = -45;
+
+
 #endif

@@ -6,8 +6,9 @@
 
 class DriveArmAngle: public CommandBase
 {
+	double m_angle;
 public:
-	DriveArmAngle();
+	DriveArmAngle(double);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
