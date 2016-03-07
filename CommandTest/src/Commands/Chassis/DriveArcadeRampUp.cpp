@@ -59,8 +59,8 @@ void DriveArcadeRampUp::Execute()
 
 	drivetrain->ArcadeDrive(Xout, Yout);
 
-	PrevXVal = CurrentXVal;
-	PrevYVal = CurrentYVal;
+	PrevXVal = Xout;
+	PrevYVal = Yout;
 }
 
 // Make this return true when this Command no longer needs to run execute()
