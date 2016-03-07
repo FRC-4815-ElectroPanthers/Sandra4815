@@ -24,6 +24,7 @@ void SmartDashReport::Execute()
 	SmartDashboard::PutNumber("Right Shooter Wheel Speed", shooter->RightShooterSpeed());
 
 	SmartDashboard::PutBoolean("Good To Shoot", shooter->ReadyToShoot());
+	SmartDashboard::PutBoolean("Has Ball", shooter->HasBall());
 
 }
 
