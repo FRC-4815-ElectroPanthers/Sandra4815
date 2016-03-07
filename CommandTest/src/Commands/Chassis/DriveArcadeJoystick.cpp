@@ -31,7 +31,7 @@ void DriveArcadeJoystick::Execute()
 		sensativity -= 0.1;
 	}
 
-	SmartDashboard::PutNumber("DB/Slider 0", sensativity*5);
+	SmartDashboard::PutNumber("Joystick Sensativity", sensativity);
 
 	float xAdjus = sensativity*pow(-oi->drive->GetRawAxis(1),3) + (1-sensativity)*(-oi->drive->GetRawAxis(1));
 	float yAdjus = sensativity*pow(oi->drive->GetRawAxis(0),3) + (1-sensativity)*(oi->drive->GetRawAxis(0));
