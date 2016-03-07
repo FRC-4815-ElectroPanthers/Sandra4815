@@ -44,6 +44,19 @@ void DriveArcadeRampUp::Execute()
 		Yout -= DeltaY/RAMP;
 	}
 
+	if(Xout > 1.0){
+		Xout = 1.0;
+	}
+	if(Yout > 1.0){
+		Yout = 1.0;
+	}
+	if(Xout < -1.0){
+		Xout = -1.0;
+	}
+	if(Yout < -1.0){
+		Yout = -1.0;
+	}
+
 	drivetrain->ArcadeDrive(Xout, Yout);
 
 	PrevXVal = CurrentXVal;
