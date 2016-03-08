@@ -17,17 +17,20 @@ Chassis::Chassis():
 	frontLeft = new Talon(FRONTLEFT);
 	backLeft = new Talon(BACKLEFT);
 
-	//LeftFront = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
+	//drive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+
+	left = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
 	right = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
 
 	gyro = new ADXRS450_Gyro();
 
-	//LeftFront->SetDistancePerPulse(distancePerPulse); //Feet per Pulse
+	left->SetDistancePerPulse(DISTANCE_PER_PULSE); //Feet per Pulse
 	right->SetDistancePerPulse(DISTANCE_PER_PULSE); //try dividing by 1024 instead
 
 	right->SetSamplesToAverage(56);
+	left->SetSamplesToAverage(56);
 
-	//LeftFront->SetMinRate(0.001);
+	left->SetMinRate(0.001);
 	right->SetMinRate(0.0001);
 
 	sensor = encoder_t;
@@ -41,6 +44,8 @@ void Chassis::ArcadeDrive(float x, float y){ //may want to change to a vector ca
 	backRight->Set(right);
 	frontLeft->Set(left);
 	backLeft->Set(left);
+
+	//drive.Drive(y, x);
 }
 
 void Chassis::ArcadeDriveThrust(float x, float y, float pedal){
@@ -56,17 +61,17 @@ void Chassis::ArcadeDriveThrust(float x, float y, float pedal){
 }
 
 double Chassis::GetSpeed(){
-	return right->GetRate(); //may need to change to a vector calc
-	//(LeftFront->GetRate()+
+	return (right->GetRate() + left->GetRate()); //may need to change to a vector calc
 }
 
 double Chassis::GetDistanceTravel(){
-	return right->GetRaw()*DISTANCE_PER_PULSE;
+	return (right->GetRaw()*DISTANCE_PER_PULSE + left->GetRaw()*DISTANCE_PER_PULSE)/2;
 	//rightBack->GetDistance() has weird scaling issues
 }
 
 void Chassis::ResetEncoder(){
 	right->Reset();
+	left->Reset();
 }
 
 void Chassis::CalibrateGyro(){

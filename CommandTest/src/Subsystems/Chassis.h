@@ -9,7 +9,8 @@ class Chassis: public PIDSubsystem
 {
 private:
 	Talon *frontRight, *backRight, *frontLeft, *backLeft;
-	Encoder *right; //*leftFront;
+	//RobotDrive drive; //Added RobotDrive class to expirement for better driving?
+	Encoder *right, *left;
 	ADXRS450_Gyro *gyro;
 	double const DISTANCE_PER_PULSE = PI/8192;
 
