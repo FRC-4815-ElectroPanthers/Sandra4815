@@ -1,7 +1,7 @@
 #ifndef SpinUpBangBang_H
 #define SpinUpBangBang_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class SpinUpBangBang: public CommandBase

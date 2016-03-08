@@ -1,7 +1,7 @@
 #ifndef DriveArmAngle_H
 #define DriveArmAngle_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class DriveArmAngle: public CommandBase

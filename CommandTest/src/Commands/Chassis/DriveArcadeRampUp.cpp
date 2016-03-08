@@ -4,7 +4,7 @@ DriveArcadeRampUp::DriveArcadeRampUp()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(chassis);
+	Requires(drivetrain);
 
 	CurrentXVal = 0;
 	PrevXVal = 0;

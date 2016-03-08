@@ -1,7 +1,7 @@
 #ifndef DriveArmJoystick_H
 #define DriveArmJoystick_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class DriveArmJoystick: public CommandBase

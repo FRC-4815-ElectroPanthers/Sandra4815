@@ -1,7 +1,7 @@
 #ifndef arcadeDrive_H
 #define arcadeDrive_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 #include "Subsystems/Chassis.h"
 

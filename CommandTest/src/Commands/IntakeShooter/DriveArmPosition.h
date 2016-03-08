@@ -1,7 +1,7 @@
 #ifndef DriveArmPosition_H
 #define DriveArmPosition_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class DriveArmPosition: public CommandBase

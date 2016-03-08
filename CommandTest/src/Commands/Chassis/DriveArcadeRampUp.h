@@ -1,7 +1,7 @@
 #ifndef DriveArcadeRampUp_H
 #define DriveArcadeRampUp_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class DriveArcadeRampUp: public CommandBase
