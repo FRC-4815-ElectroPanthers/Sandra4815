@@ -95,10 +95,6 @@ void Chassis::SourcePID(PIDSensor sense){
 	}
 }
 
-bool Chassis::PIDdone(){
-	return ((GetSetpoint()-GetPosition()) < 0.001 && (GetSetpoint()-GetPosition()) > -0.001);
-}
-
 void Chassis::Report(){
 	std::cout << "Speed: " << GetSpeed() << " ft/s \n"
 			  << "Distance Traveled: " << GetDistanceTravel() << " ft\n"

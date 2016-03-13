@@ -38,9 +38,9 @@ void DriveArcadeJoystick::Execute()
 
 	drivetrain->ArcadeDrive(xAdjus, yAdjus);
 
-	if(t->HasPeriodPassed(2.0)){
-		drivetrain->Report();
-	}
+	//if(t->HasPeriodPassed(2.0)){
+		//drivetrain->Report();
+	//}
 
 }
 

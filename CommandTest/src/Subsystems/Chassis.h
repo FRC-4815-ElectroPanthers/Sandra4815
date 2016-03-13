@@ -28,7 +28,6 @@ public:
 	double GetYaw();
 	void SourcePID(PIDSensor);
 	void Report();
-	bool PIDdone();
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	void InitDefaultCommand();
