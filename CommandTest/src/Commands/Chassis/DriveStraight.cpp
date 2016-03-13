@@ -37,9 +37,9 @@ bool DriveStraight::IsFinished()
 	bool finished;
 
 	if(timed){
-		finished = drivetrain->PIDdone() || IsTimedOut();
+		finished = (drivetrain->GetDistanceTravel() == setpoint) || IsTimedOut();
 	}else{
-		finished = drivetrain->PIDdone();
+		finished = (drivetrain->GetDistanceTravel() == setpoint);
 	}
 
 	return finished;

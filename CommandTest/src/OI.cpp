@@ -1,5 +1,11 @@
 #include "OI.h"
 #include "Buttons/JoystickButton.h"
+#include "Commands/Chassis/DriveArcadeRampUp.h"
+#include "Commands/IntakeShooter/Shoot.h"
+#include "Commands/IntakeShooter/DriveArmPosition.h"
+#include "Commands/IntakeShooter/Intake.h"
+#include "Commands/IntakeShooter/SpitOut.h"
+#include "Commands/IntakeShooter/SpinUpBangBang.h"
 
 OI::OI()
 {

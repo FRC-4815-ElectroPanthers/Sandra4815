@@ -37,9 +37,9 @@ bool DriveTurn::IsFinished()
 	bool finished;
 
 	if(timed){
-		finished = drivetrain->PIDdone() || IsTimedOut();
+		finished = (drivetrain->GetYaw()==driveTo) || IsTimedOut();
 	}else{
-		finished = drivetrain->PIDdone();
+		finished =(drivetrain->GetYaw()==driveTo);
 	}
 
 	return finished;
