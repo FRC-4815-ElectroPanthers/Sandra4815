@@ -6,6 +6,7 @@
 
 class SpitOut: public CommandBase
 {
+	bool finished;
 public:
 	SpitOut();
 	void Initialize();

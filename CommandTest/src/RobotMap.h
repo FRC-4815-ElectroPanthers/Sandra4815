@@ -21,13 +21,13 @@
 //const int RANGE_FINDER_PORT = 1;
 //const int RANGE_FINDER_MODULE = 1;
 
-const uint32_t FRONTRIGHT = 3;
+const uint32_t FRONTRIGHT = 0;
 const uint32_t BACKRIGHT = 1;
-const uint32_t FRONTLEFT = 2;
-const uint32_t BACKLEFT = 0;
-const uint32_t SERVO = 4;
-const uint32_t RIGHTSHOOTER = 5;
-const uint32_t LEFTSHOOTER = 6;
+const uint32_t FRONTLEFT = 3;
+const uint32_t BACKLEFT = 2;
+const uint32_t SERVO = 6;
+const uint32_t RIGHTSHOOTER = 4;
+const uint32_t LEFTSHOOTER = 5;
 const int ARM = 1;
 
 const uint32_t BR_ENC_A = 1;

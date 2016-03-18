@@ -9,6 +9,17 @@ DriveArcade::DriveArcade(float x, float y)
 	yDirc = y;
 }
 
+DriveArcade::DriveArcade(float x, float y, float timeout)
+{
+	// Use Requires() here to declare subsystem dependencies
+	// eg. Requires(chassis);
+	Requires(CommandBase::drivetrain);
+	xDirc = x;
+	yDirc = y;
+
+	SetTimeout(timeout);
+}
+
 // Called just before this Command runs the first time
 void DriveArcade::Initialize()
 {
@@ -25,7 +36,7 @@ void DriveArcade::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool DriveArcade::IsFinished()
 {
-	return false;
+	return false || IsTimedOut();
 }
 
 // Called once after isFinished returns true

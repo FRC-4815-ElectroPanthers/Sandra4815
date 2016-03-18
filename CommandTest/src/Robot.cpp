@@ -4,34 +4,34 @@
 #include "IterativeRobot.h"
 #include "Commands/Chassis/DriveStraight.h"
 #include "Commands/Chassis/DriveArcade.h"
-#include "Commands/SmartDashReport.h"
+//#include "Commands/SmartDashReport.h"
 #include <USBCamera.h>
 #include <CameraServer.h>
 
 class Robot: public IterativeRobot
 {
 private:
-	Command *autonomousCommand, *report;
+	Command *autonomousCommand;// *report;
 	LiveWindow *lw;
 	std::shared_ptr<USBCamera> cam;
 
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = new DriveStraight(6); //6 ft
+		autonomousCommand = new DriveArcade(0.5, 0, 0.75); //6 ft
 		lw = LiveWindow::GetInstance();
 		CommandBase::drivetrain->CalibrateGyro();
 		CommandBase::drivetrain->ResetEncoder();
 		cam = std::make_shared<USBCamera>("cam0", false);
 
-		cam->SetBrightness(25);
+		cam->SetBrightness(50);
 		cam->UpdateSettings();
 		cam->StopCapture();
 
 		CameraServer::GetInstance()->StartAutomaticCapture(cam);
 
-		report = new SmartDashReport();
-		report->Start();
+		//report = new SmartDashReport();
+		//report->Start();
 	}
 	
 	void DisabledPeriodic()

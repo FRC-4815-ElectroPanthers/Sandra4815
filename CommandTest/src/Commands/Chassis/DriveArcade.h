@@ -9,6 +9,7 @@ class DriveArcade: public CommandBase
 	float xDirc, yDirc;
 public:
 	DriveArcade(float, float);
+	DriveArcade(float, float, float);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

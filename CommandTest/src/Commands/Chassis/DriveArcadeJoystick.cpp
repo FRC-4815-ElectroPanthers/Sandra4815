@@ -23,6 +23,10 @@ void DriveArcadeJoystick::Execute()
 		drivetrain->ResetEncoder();
 	}
 
+	if(oi->drive->GetRawButton(2)){
+		drivetrain->ResetGyro();
+	}
+
 	if(oi->drive->GetRawButton(8) && sensativity != 1.0 && t->HasPeriodPassed(0.5)){
 		sensativity += 0.1;
 	}
@@ -41,6 +45,10 @@ void DriveArcadeJoystick::Execute()
 	//if(t->HasPeriodPassed(2.0)){
 		//drivetrain->Report();
 	//}
+
+	SmartDashboard::PutNumber("Speed", drivetrain->GetSpeed());
+	SmartDashboard::PutNumber("Relative Linear Travel", drivetrain->GetDistanceTravel());
+	SmartDashboard::PutNumber("Reative Heading Angle", drivetrain->GetYaw());
 
 }
 

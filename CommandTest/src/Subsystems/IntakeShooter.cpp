@@ -34,17 +34,17 @@ IntakeShooter::IntakeShooter() :
 	arm->SetSensorDirection(false);
 
 	arm->SetAllowableClosedLoopErr(0);
-	arm->SetP(0.0);
+	arm->SetP(1.0);
 	arm->SetI(0.0);
 	arm->SetD(0.0);
 }
 
 void IntakeShooter::Shoot(){
-	push->SetAngle(90);
+	push->SetAngle(150);
 }
 
 void IntakeShooter::Retract(){
-	push->SetAngle(0);
+	push->SetAngle(90);
 }
 
 void IntakeShooter::RightSpinUP(bool reverse){
@@ -79,11 +79,24 @@ void IntakeShooter::ReadyToShoot(bool status){
 	shoot = status;
 }
 
-/*
- *void IntakeShooter::Intake(){}
- *
- *void IntakeShooter::SpitOut(){}
- */
+
+void IntakeShooter::LeftIntakeSpit(bool reverse){
+	if(reverse){
+		leftWheel->Set(-0.25);
+	}else{
+		leftWheel->Set(0.25);
+	}
+}
+
+
+void IntakeShooter::RightIntakeSpit(bool reverse){
+	if(reverse){
+		leftWheel->Set(-0.25);
+	}else{
+		leftWheel->Set(0.25);
+	}
+}
+
 
 void IntakeShooter::MoveArmTo(Position k){
 	if(arm->GetControlMode() != CANSpeedController::kPosition){

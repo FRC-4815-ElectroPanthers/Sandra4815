@@ -6,6 +6,7 @@
 
 class Intake: public CommandBase
 {
+	bool finished;
 public:
 	Intake();
 	void Initialize();

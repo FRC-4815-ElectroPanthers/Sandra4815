@@ -25,8 +25,8 @@ public:
 	void LeftSpinUP(bool);
 	void RightSpinStop();
 	void LeftSpinStop();
-	//void Intake();
-	//void SpitOut();
+	void LeftIntakeSpit(bool);
+	void RightIntakeSpit(bool);
 	void JustShot(bool);
 	void ReadyToShoot(bool);
 	void MoveArmTo(Position);
