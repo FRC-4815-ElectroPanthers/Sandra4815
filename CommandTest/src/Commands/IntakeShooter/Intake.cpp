@@ -29,9 +29,11 @@ void Intake::Execute()
 		CommandBase::shooter->LeftSpinStop();
 	}
 
+	/*
 	if(oi->operate->GetRawAxis(5)){
 		finished = true;
 	}
+	*/
 
 
 }
@@ -39,7 +41,7 @@ void Intake::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool Intake::IsFinished()
 {
-	return finished;
+	return false;//finished;
 }
 
 // Called once after isFinished returns true

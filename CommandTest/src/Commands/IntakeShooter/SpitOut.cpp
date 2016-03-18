@@ -29,16 +29,16 @@ void SpitOut::Execute()
 		CommandBase::shooter->LeftSpinStop();
 	}
 
-	if(oi->operate->GetRawAxis(6)){
-		finished = true;
-	}
+	//if(oi->operate->GetRawAxis(6)){
+		//finished = true;
+	//}
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool SpitOut::IsFinished()
 {
-	return finished;
+	return false;//finished;
 }
 
 // Called once after isFinished returns true
