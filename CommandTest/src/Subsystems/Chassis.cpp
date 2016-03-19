@@ -17,7 +17,7 @@ Chassis::Chassis():
 	frontLeft = new Talon(FRONTLEFT);
 	backLeft = new Talon(BACKLEFT);
 
-	//drive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+	drive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 
 	left = new Encoder(FL_ENC_A, FL_ENC_B, false, Encoder::EncodingType::k4X);
 	right = new Encoder(BR_ENC_A, BR_ENC_B, false, Encoder::EncodingType::k4X);
@@ -45,7 +45,7 @@ void Chassis::ArcadeDrive(float x, float y){ //may want to change to a vector ca
 	frontLeft->Set(left);
 	backLeft->Set(left);
 
-	//drive.Drive(y, x);
+	//drive->Drive(y, x);
 }
 
 void Chassis::ArcadeDriveThrust(float x, float y, float pedal){
@@ -126,11 +126,15 @@ void Chassis::UsePIDOutput(double output)
 		backRight->Set(output);
 		frontLeft->Set(output);
 		backLeft->Set(output);
+		//drive->Drive(output, 0);
+	}else if (sensor == gyroAdjust_t){
+		drive->Drive(0.5, output);
 	}else{
 		frontRight->Set(output);
 		backRight->Set(output);
 		frontLeft->Set(-output);
 		backLeft->Set(-output);
+		//drive->Drive(0, output);
 	}
 }
 

@@ -7,10 +7,10 @@
 class DriveStraight: public CommandBase
 {
 private:
-	double setpoint;
-	bool timed = false;
+	bool finished,
+	     timed = false;
 public:
-	DriveStraight(double);
+	DriveStraight();
 	DriveStraight(double, double);
 	void Initialize();
 	void Execute();

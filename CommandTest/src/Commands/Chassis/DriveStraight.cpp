@@ -1,17 +1,16 @@
 #include <Commands/Chassis/DriveStraight.h>
 
-DriveStraight::DriveStraight(double distance)
+DriveStraight::DriveStraight()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	setpoint = distance;
-
 	Requires(drivetrain);
+	finished = false;
 }
 
 DriveStraight::DriveStraight(double distance, double timeout){
-	setpoint = distance;
 	SetTimeout(timeout);
+	finished = false;
 
 	Requires(drivetrain);
 }
@@ -19,9 +18,9 @@ DriveStraight::DriveStraight(double distance, double timeout){
 // Called just before this Command runs the first time
 void DriveStraight::Initialize()
 {
-	drivetrain->SourcePID(Chassis::encoder_t);
-	drivetrain->ResetEncoder();
-	drivetrain->SetSetpoint(setpoint);
+	drivetrain->SourcePID(Chassis::gyroAdjust_t);
+	//drivetrain->ResetEncoder();
+	drivetrain->SetSetpoint(0);
 	drivetrain->Enable();
 }
 
@@ -34,14 +33,6 @@ void DriveStraight::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool DriveStraight::IsFinished()
 {
-	bool finished;
-
-	if(timed){
-		finished = (drivetrain->GetDistanceTravel() == setpoint) || IsTimedOut();
-	}else{
-		finished = (drivetrain->GetDistanceTravel() == setpoint);
-	}
-
 	return finished || IsTimedOut();
 }
 
