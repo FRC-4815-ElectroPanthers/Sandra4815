@@ -27,6 +27,8 @@ public:
 	void LeftSpinStop();
 	void LeftIntakeSpit(bool);
 	void RightIntakeSpit(bool);
+	void ManualRightSpin(float);
+	void ManualLeftSpin(float);
 	void JustShot(bool);
 	void ReadyToShoot(bool);
 	void MoveArmTo(Position);

@@ -71,6 +71,14 @@ void IntakeShooter::LeftSpinStop(){
 	leftWheel->Set(0.0);
 }
 
+void IntakeShooter::ManualLeftSpin(float input){
+	leftWheel->Set(input);
+}
+
+void IntakeShooter::ManualRightSpin(float input){
+	rightWheel->Set(input);
+}
+
 void IntakeShooter::JustShot(bool status){
 	shot = status;
 }
