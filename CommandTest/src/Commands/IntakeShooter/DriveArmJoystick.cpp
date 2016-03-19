@@ -32,15 +32,15 @@ void DriveArmJoystick::Execute()
 	CommandBase::shooter->MoveThrottle(CommandBase::oi->operate->GetRawAxis(1));
 
 	if(mode == t_spit){
-		CommandBase::shooter->ManualLeftSpin(-oi->operate->GetRawAxis(2));
+		CommandBase::shooter->ManualLeftSpin(-oi->operate->GetRawAxis(2)*0.25);
 	}else{
-		CommandBase::shooter->ManualLeftSpin(oi->operate->GetRawAxis(2));
+		CommandBase::shooter->ManualLeftSpin(oi->operate->GetRawAxis(2)*0.25);
 	}
 
 	if(mode == t_intake){
-		CommandBase::shooter->ManualRightSpin(-oi->operate->GetRawAxis(3));
+		CommandBase::shooter->ManualRightSpin(-oi->operate->GetRawAxis(3)*0.25);
 	}else{
-		CommandBase::shooter->ManualRightSpin(oi->operate->GetRawAxis(3));
+		CommandBase::shooter->ManualRightSpin(oi->operate->GetRawAxis(3)*0.25);
 	}
 }
 // Make this return true when this Command no longer needs to run execute()
