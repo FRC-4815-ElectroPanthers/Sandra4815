@@ -5,7 +5,7 @@
 #include "LiveWindow/LiveWindow.h"
 
 Chassis::Chassis():
-		PIDSubsystem("Chassis", 1.0, 0.0, 0.0)
+		PIDSubsystem("Chassis", 0.25, 0.0, 0.0)
 {
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system

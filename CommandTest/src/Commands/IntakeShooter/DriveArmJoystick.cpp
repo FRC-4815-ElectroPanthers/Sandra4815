@@ -23,6 +23,12 @@ void DriveArmJoystick::Execute()
 
 	SmartDashboard::PutBoolean("Good To Shoot", shooter->ReadyToShoot());
 
+	if(oi->operate->GetRawButton(6) && mode == t_intake){
+		mode = t_spit;
+	}else{
+		mode = t_intake;
+	}
+
 	CommandBase::shooter->MoveThrottle(CommandBase::oi->operate->GetRawAxis(1));
 
 	if(mode == t_spit){

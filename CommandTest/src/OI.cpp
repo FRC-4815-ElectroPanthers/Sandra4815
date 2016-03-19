@@ -34,8 +34,8 @@ OI::OI()
 				   *operate2 = new JoystickButton(operate, 2),
 				   *operate3 = new JoystickButton(operate, 3),
 				   *operate4 = new JoystickButton(operate, 4),
-				   *operate5 = new JoystickButton(operate, 5),
-				   *operate6 = new JoystickButton(operate, 6)//,
+				   *operate5 = new JoystickButton(operate, 5)//,
+				   //*operate6 = new JoystickButton(operate, 6)//,
 				   //*operate7 = new JoystickButton(operate, 7)
 				   ;//,*operate8 = new JoystickButton(operate, 8);
 
@@ -44,7 +44,7 @@ OI::OI()
 	operate3->WhenPressed(new DriveArmPosition(IntakeShooter::kFrontShot));
 	operate4->WhenPressed(new DriveArmPosition(IntakeShooter::kStow));
 	operate5->WhenPressed(new Intake());
-	operate6->WhenPressed(new SpitOut());
+	//operate6->WhenPressed(new SpitOut());
 	//operate5->ToggleWhenPressed(new Intake());
 	//operate6->ToggleWhenPressed(new SpitOut());
 	//operate7->ToggleWhenPressed(new SpinUpBangBang());

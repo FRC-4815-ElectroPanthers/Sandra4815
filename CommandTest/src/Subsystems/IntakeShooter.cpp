@@ -34,7 +34,7 @@ IntakeShooter::IntakeShooter() :
 	arm->SetSensorDirection(false);
 
 	arm->SetAllowableClosedLoopErr(0);
-	arm->SetP(1.0);
+	arm->SetP(0.25);
 	arm->SetI(0.0);
 	arm->SetD(0.0);
 }
