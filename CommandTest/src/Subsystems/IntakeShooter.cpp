@@ -105,9 +105,9 @@ void IntakeShooter::LeftIntakeSpit(bool reverse){
 
 void IntakeShooter::RightIntakeSpit(bool reverse){
 	if(reverse){
-		rightWheel->Set(-0.25);
+		rightWheel->Set(-1);
 	}else{
-		rightWheel->Set(0.25);
+		rightWheel->Set(1);
 	}
 }
 
