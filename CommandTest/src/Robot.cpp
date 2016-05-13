@@ -3,8 +3,9 @@
 #include "CommandBase.h"
 #include "IterativeRobot.h"
 #include "Commands/Chassis/DriveForward.h"
-#include "Commands/Chassis/DriveArcade.h"
+//#include "Commands/Chassis/DriveArcade.h"
 //#include "Commands/SmartDashReport.h"
+#include "Commands/Chassis/DriveForward.h"
 #include <USBCamera.h>
 #include <CameraServer.h>
 
@@ -18,7 +19,7 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = new DriveArcade(0.5, 0, 0.75); //6 ft
+		autonomousCommand = new DriveForward(6, 0.75); //6 ft
 		lw = LiveWindow::GetInstance();
 		CommandBase::drivetrain->CalibrateGyro();
 		CommandBase::drivetrain->ResetEncoder();

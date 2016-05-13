@@ -124,16 +124,16 @@ void Chassis::UsePIDOutput(double output)
 	if(sensor == encoder_t){
 		frontRight->Set(output);
 		backRight->Set(output);
-		frontLeft->Set(output);
-		backLeft->Set(output);
+		frontLeft->Set(-output);
+		backLeft->Set(-output);
 		//drive->Drive(output, 0);
 	//}else if (sensor == gyroAdjust_t){
 		//drive->Drive(0.5, output);
 	}else{
 		frontRight->Set(output);
 		backRight->Set(output);
-		frontLeft->Set(-output);
-		backLeft->Set(-output);
+		frontLeft->Set(output);
+		backLeft->Set(output);
 		//drive->Drive(0, output);
 	}
 }
