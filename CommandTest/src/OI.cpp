@@ -16,17 +16,17 @@ OI::OI()
 
 	JoystickButton //*drive1 = new JoystickButton(drive, 1),
 				   //*drive2 = new JoystickButton(drive, 2),
-				   //*drive3 = new JoystickButton(drive, 3),
-				   //*drive4 = new JoystickButton(drive, 4),
+				   *drive3 = new JoystickButton(drive, 3),
+				   *drive4 = new JoystickButton(drive, 4),
 				   *drive5 = new JoystickButton(drive, 5);
 				   //*drive6 = new JoystickButton(drive, 6),
 				   //*drive7 = new JoystickButton(drive, 7),
 				   //*drive8 = new JoystickButton(drive, 8);
 
 	//drive1->WhenPressed(new DriveTurn(180));
-	//drive2->WhenPressed(new DriveTurn(90));
-	//drive3->WhenPressed(new DriveTurn(-90));
-	drive5->ToggleWhenPressed(new DriveArcadeRampUp());
+	drive4->WhenPressed(new DriveTurn(90));
+	drive5->WhenPressed(new DriveTurn(-90));
+	drive3->ToggleWhenPressed(new DriveArcadeRampUp());
 	//drive6->CancelWhenPressed(new DriveArcadeRampUp());
 	//drive8->WhenPressed(new Shoot());
 
