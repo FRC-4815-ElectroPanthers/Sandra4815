@@ -42,7 +42,7 @@ const uint32_t LS_ENC_B = 9;
 const uint32_t RANGEFINDER = 0;
 
 const int WHEEL_DIA_IN = 8;
-const double WHEEL_DIA_FT = 8/12;
+const double WHEEL_DIA_FT = WHEEL_DIA_IN/12;
 const int SHOOTER_DIA = 6;
 
 const double STOW_ANGLE = 90;
