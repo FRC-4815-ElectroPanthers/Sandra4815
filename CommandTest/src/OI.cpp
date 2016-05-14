@@ -24,8 +24,8 @@ OI::OI()
 				   //*drive8 = new JoystickButton(drive, 8);
 
 	//drive1->WhenPressed(new DriveTurn(180));
-	drive4->WhenPressed(new DriveTurn(90));
-	drive5->WhenPressed(new DriveTurn(-90));
+	drive4->ToggleWhenPressed(new DriveTurn(90));
+	drive5->ToggleWhenPressed(new DriveTurn(-90));
 	drive3->ToggleWhenPressed(new DriveArcadeRampUp());
 	//drive6->CancelWhenPressed(new DriveArcadeRampUp());
 	//drive8->WhenPressed(new Shoot());
