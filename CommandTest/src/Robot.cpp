@@ -12,27 +12,27 @@
 class Robot: public IterativeRobot
 {
 private:
-	Command *autonomousCommand;// *report;
+	Command *autonomousCommand;
 	LiveWindow *lw;
 	std::shared_ptr<USBCamera> cam;
 
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = new DriveForward(6, 0.75); //6 ft
-		lw = LiveWindow::GetInstance();
 		CommandBase::drivetrain->CalibrateGyro();
 		CommandBase::drivetrain->ResetEncoder();
-		cam = std::make_shared<USBCamera>("cam0", false);
 
+		autonomousCommand = new DriveForward(6, 0.75); //6 ft
+
+		lw = LiveWindow::GetInstance();
+		lw->AddActuator("Chassis", "PID Tuning", CommandBase::drivetrain->GetPIDController());
+
+		cam = std::make_shared<USBCamera>("cam0", false);
 		cam->SetBrightness(50);
 		cam->UpdateSettings();
 		cam->StopCapture();
 
 		CameraServer::GetInstance()->StartAutomaticCapture(cam);
-
-		//report = new SmartDashReport();
-		//report->Start();
 	}
 	
 	void DisabledPeriodic()
@@ -44,6 +44,9 @@ private:
 	{
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
+
+		CommandBase::drivetrain->CalibrateGyro();
+		CommandBase::drivetrain->ResetEncoder();
 	}
 
 	void AutonomousPeriodic()
@@ -59,6 +62,9 @@ private:
 		// this line or comment it out.
 		if (autonomousCommand != NULL)
 			autonomousCommand->Cancel();
+
+		CommandBase::drivetrain->CalibrateGyro();
+		CommandBase::drivetrain->ResetEncoder();
 	}
 
 	void TeleopPeriodic()
