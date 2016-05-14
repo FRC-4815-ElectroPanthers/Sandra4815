@@ -25,7 +25,7 @@ Chassis::Chassis():
 	gyro = new ADXRS450_Gyro();
 
 	//left->SetDistancePerPulse(DISTANCE_PER_PULSE); //Feet per Pulse
-	right->SetDistancePerPulse(DISTANCE_PER_PULSE); //try dividing by 1024 instead
+	right->SetDistancePerPulse(DISTANCE_PER_PULSE);
 
 	right->SetSamplesToAverage(56);
 	//left->SetSamplesToAverage(56);
