@@ -5,7 +5,7 @@
 #include "LiveWindow/LiveWindow.h"
 
 Chassis::Chassis():
-		PIDSubsystem("Chassis", 0.25, 0.0, 0.0)
+		PIDSubsystem("Chassis", 0.1, 0.0, 0.0)
 {
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system
@@ -34,6 +34,8 @@ Chassis::Chassis():
 	right->SetMinRate(0.0001);
 
 	sensor = encoder_t;
+
+	LiveWindow::GetInstance()->AddActuator("Chassis", "PID Tuning", GetPIDController());
 }
 
 void Chassis::ArcadeDrive(float x, float y){ //may want to change to a vector calculation

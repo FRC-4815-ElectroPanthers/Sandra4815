@@ -42,7 +42,7 @@ bool DriveForward::IsFinished()
 		finished = (drivetrain->GetDistanceTravel() == setpoint);
 	}
 
-	return finished || IsTimedOut();
+	return finished;
 }
 
 // Called once after isFinished returns true
