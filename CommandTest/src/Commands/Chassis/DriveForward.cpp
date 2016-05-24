@@ -11,6 +11,7 @@ DriveForward::DriveForward(double distance)
 
 DriveForward::DriveForward(double distance, double timeout){
 	setpoint = distance;
+	timed = true;
 	SetTimeout(timeout);
 
 	Requires(drivetrain);
@@ -34,6 +35,8 @@ void DriveForward::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool DriveForward::IsFinished()
 {
+	//return false;
+	
 	bool finished;
 
 	if(timed){
