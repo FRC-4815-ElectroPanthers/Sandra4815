@@ -35,8 +35,9 @@ void DriveForward::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool DriveForward::IsFinished()
 {
-	//return false;
-	
+	return false;
+
+	/*
 	bool finished;
 
 	if(timed){
@@ -46,6 +47,8 @@ bool DriveForward::IsFinished()
 	}
 
 	return finished;
+	*/
+
 }
 
 // Called once after isFinished returns true

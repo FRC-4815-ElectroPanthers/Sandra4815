@@ -92,6 +92,7 @@ double Chassis::GetYaw(){
 void Chassis::SourcePID(PIDSensor sense){
 	if (sense == gyro_t && sensor != gyro_t){
 		sensor = gyro_t;
+		GetPIDController()->SetPID(0.01, 0.0, 0.0);
 	}else{
 		sensor = encoder_t;
 	}
