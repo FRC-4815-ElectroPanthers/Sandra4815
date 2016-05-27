@@ -104,6 +104,27 @@ void Chassis::Report(){
 			  << "Relative Heading Angle: " << GetYaw() << " degrees\n\n";
 }
 
+void Chassis::ReportSmartDash(){
+	SmartDashboard::PutNumber("Speed", GetSpeed());
+	SmartDashboard::PutNumber("Relative Linear Travel", GetDistanceTravel());
+	SmartDashboard::PutNumber("Reative Heading Angle", GetYaw());
+	SmartDashboard::PutNumber("P", GetPIDController()->GetP());
+	SmartDashboard::PutNumber("I", GetPIDController()->GetI());
+	SmartDashboard::PutNumber("D", GetPIDController()->GetD());
+	SmartDashboard::PutNumber("F", GetPIDController()->GetF());
+}
+
+void Chassis::SetPIDSmartDash(){
+	Preferences *pref = Preferences::GetInstance();
+	std::shared_ptr<PIDController> control = GetPIDController();
+
+	if(pref->GetBoolean("PID Edit", false)){
+		control->SetPID(pref->GetDouble("P", control->GetP()),
+				        pref->GetDouble("I", control->GetI()),
+						pref->GetDouble("D", control->GetD()));
+	}
+}
+
 double Chassis::ReturnPIDInput()
 {
 	// Return your input value for the PID loop

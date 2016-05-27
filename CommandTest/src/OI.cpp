@@ -20,16 +20,16 @@ OI::OI()
 				   *drive3 = new JoystickButton(drive, 3),
 				   *drive4 = new JoystickButton(drive, 4),
 				   *drive5 = new JoystickButton(drive, 5),
-				   *drive6 = new JoystickButton(drive, 6);
-				   //*drive7 = new JoystickButton(drive, 7),
+				   *drive6 = new JoystickButton(drive, 6),
+				   *drive7 = new JoystickButton(drive, 7);//,
 				   //*drive8 = new JoystickButton(drive, 8);
 
 	//drive1->WhenPressed(new DriveTurn(180));
-	drive4->WhenPressed(new DriveTurn(90));
-	drive5->WhenPressed(new DriveTurn(-90));
+	drive4->ToggleWhenPressed(new DriveTurn(90));
+	drive5->ToggleWhenPressed(new DriveTurn(-90));
 	drive3->ToggleWhenPressed(new DriveArcadeRampUp());
 	drive6->ToggleWhenPressed(new DriveForward(6));
-	//drive8->WhenPressed(new Shoot());
+	drive7->ToggleWhenPressed(new DriveForward(-6));
 
 	/*
 	JoystickButton *operate7 = new JoystickButton(operate, 7),

@@ -26,6 +26,7 @@ private:
 
 		lw = LiveWindow::GetInstance();
 
+		SmartDashboard::PutData(Scheduler::GetInstance());
 
 		cam = std::make_shared<USBCamera>("cam0", false);
 		cam->SetBrightness(50);
@@ -82,8 +83,6 @@ private:
 
 	void TestPeriodic()
 	{
-		//lw->AddActuator("Chassis", "PID Tuning", CommandBase::drivetrain->GetPIDController());
-
 		Scheduler::GetInstance()->Run();
 		lw->Run();
 	}
