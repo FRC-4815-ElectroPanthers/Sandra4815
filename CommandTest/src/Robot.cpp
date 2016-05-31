@@ -15,6 +15,7 @@ private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
 	std::shared_ptr<USBCamera> cam;
+	Preferences *pref = Preferences::GetInstance();
 
 	void RobotInit()
 	{
@@ -34,6 +35,12 @@ private:
 		cam->StopCapture();
 
 		CameraServer::GetInstance()->StartAutomaticCapture(cam);
+
+		if(pref->GetBoolean("PID Edit", false)){
+				CommandBase::drivetrain->SetPIDSmartDash(pref->GetDouble("P", 0.1),
+						        pref->GetDouble("I", 0),
+								pref->GetDouble("D", 0));
+		}
 	}
 	
 	void DisabledPeriodic()
@@ -66,6 +73,12 @@ private:
 
 		CommandBase::drivetrain->CalibrateGyro();
 		CommandBase::drivetrain->ResetEncoder();
+
+		if(pref->GetBoolean("PID Edit", false)){
+			CommandBase::drivetrain->SetPIDSmartDash(pref->GetDouble("P", 0.1),
+								        pref->GetDouble("I", 0),
+										pref->GetDouble("D", 0));
+		}
 	}
 
 	void TeleopPeriodic()

@@ -29,7 +29,7 @@ public:
 	void SourcePID(PIDSensor);
 	void Report();
 	void ReportSmartDash();
-	void SetPIDSmartDash();
+	void SetPIDSmartDash(double, double, double);
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	void InitDefaultCommand();

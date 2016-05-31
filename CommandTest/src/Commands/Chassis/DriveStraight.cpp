@@ -28,7 +28,7 @@ void DriveStraight::Initialize()
 void DriveStraight::Execute()
 {
 	drivetrain->ReportSmartDash();
-	drivetrain->SetPIDSmartDash();
+	//drivetrain->SetPIDSmartDash();
 }
 
 // Make this return true when this Command no longer needs to run execute()

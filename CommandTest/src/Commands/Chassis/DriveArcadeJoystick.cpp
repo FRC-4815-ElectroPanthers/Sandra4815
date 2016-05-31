@@ -42,7 +42,7 @@ void DriveArcadeJoystick::Execute()
 
 	drivetrain->ArcadeDrive(xAdjus, yAdjus);
 	drivetrain->ReportSmartDash();
-	drivetrain->SetPIDSmartDash();
+	//drivetrain->SetPIDSmartDash();
 
 }
 

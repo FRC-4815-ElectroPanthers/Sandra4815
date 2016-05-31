@@ -114,15 +114,10 @@ void Chassis::ReportSmartDash(){
 	SmartDashboard::PutNumber("F", GetPIDController()->GetF());
 }
 
-void Chassis::SetPIDSmartDash(){
-	Preferences *pref = Preferences::GetInstance();
+void Chassis::SetPIDSmartDash(double p , double i, double d){
 	std::shared_ptr<PIDController> control = GetPIDController();
 
-	if(pref->GetBoolean("PID Edit", false)){
-		control->SetPID(pref->GetDouble("P", control->GetP()),
-				        pref->GetDouble("I", control->GetI()),
-						pref->GetDouble("D", control->GetD()));
-	}
+	control->SetPID(p, i , d);
 }
 
 double Chassis::ReturnPIDInput()
