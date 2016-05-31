@@ -67,6 +67,8 @@ void DriveArcadeRampUp::Execute()
 			  << "Yout: " << Yout << "\n";
 
 	drivetrain->ArcadeDrive(Xout, Yout);
+	drivetrain->ReportSmartDash();
+	drivetrain->SetPIDSmartDash();
 
 	PrevXVal = Xout;
 	PrevYVal = Yout;

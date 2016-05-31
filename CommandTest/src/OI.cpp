@@ -2,6 +2,7 @@
 #include "Buttons/JoystickButton.h"
 #include "Commands/Chassis/DriveArcadeRampUp.h"
 #include "Commands/Chassis/DriveTurn.h"
+#include "Commands/Chassis/DriveForward.h"
 //#include "Commands/IntakeShooter/Shoot.h"
 //#include "Commands/IntakeShooter/DriveArmPosition.h"
 //#include "Commands/IntakeShooter/Intake.h"
@@ -18,17 +19,17 @@ OI::OI()
 				   //*drive2 = new JoystickButton(drive, 2),
 				   *drive3 = new JoystickButton(drive, 3),
 				   *drive4 = new JoystickButton(drive, 4),
-				   *drive5 = new JoystickButton(drive, 5);
-				   //*drive6 = new JoystickButton(drive, 6),
-				   //*drive7 = new JoystickButton(drive, 7),
+				   *drive5 = new JoystickButton(drive, 5),
+				   *drive6 = new JoystickButton(drive, 6),
+				   *drive7 = new JoystickButton(drive, 7);//,
 				   //*drive8 = new JoystickButton(drive, 8);
 
 	//drive1->WhenPressed(new DriveTurn(180));
 	drive4->ToggleWhenPressed(new DriveTurn(90));
 	drive5->ToggleWhenPressed(new DriveTurn(-90));
 	drive3->ToggleWhenPressed(new DriveArcadeRampUp());
-	//drive6->CancelWhenPressed(new DriveArcadeRampUp());
-	//drive8->WhenPressed(new Shoot());
+	drive6->ToggleWhenPressed(new DriveForward(6));
+	drive7->ToggleWhenPressed(new DriveForward(-6));
 
 	/*
 	JoystickButton *operate7 = new JoystickButton(operate, 7),

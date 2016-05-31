@@ -11,6 +11,7 @@ DriveForward::DriveForward(double distance)
 
 DriveForward::DriveForward(double distance, double timeout){
 	setpoint = distance;
+	timed = true;
 	SetTimeout(timeout);
 
 	Requires(drivetrain);
@@ -28,12 +29,16 @@ void DriveForward::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveForward::Execute()
 {
-
+	drivetrain->ReportSmartDash();
+	drivetrain->SetPIDSmartDash();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DriveForward::IsFinished()
 {
+	return false;
+
+	/*
 	bool finished;
 
 	if(timed){
@@ -42,7 +47,9 @@ bool DriveForward::IsFinished()
 		finished = (drivetrain->GetDistanceTravel() == setpoint);
 	}
 
-	return finished || IsTimedOut();
+	return finished;
+	*/
+
 }
 
 // Called once after isFinished returns true

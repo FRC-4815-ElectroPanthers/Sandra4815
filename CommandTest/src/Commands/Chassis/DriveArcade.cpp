@@ -31,6 +31,8 @@ void DriveArcade::Initialize()
 void DriveArcade::Execute()
 {
 	CommandBase::drivetrain->ArcadeDrive(xDirc, yDirc);
+	CommandBase::drivetrain->ReportSmartDash();
+	drivetrain->SetPIDSmartDash();
 }
 
 // Make this return true when this Command no longer needs to run execute()

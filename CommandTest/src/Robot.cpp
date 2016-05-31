@@ -25,7 +25,8 @@ private:
 		autonomousCommand = new DriveForward(6, 0.75); //6 ft
 
 		lw = LiveWindow::GetInstance();
-		lw->AddActuator("Chassis", "PID Tuning", CommandBase::drivetrain->GetPIDController());
+
+		SmartDashboard::PutData(Scheduler::GetInstance());
 
 		cam = std::make_shared<USBCamera>("cam0", false);
 		cam->SetBrightness(50);
@@ -82,6 +83,7 @@ private:
 
 	void TestPeriodic()
 	{
+		Scheduler::GetInstance()->Run();
 		lw->Run();
 	}
 };

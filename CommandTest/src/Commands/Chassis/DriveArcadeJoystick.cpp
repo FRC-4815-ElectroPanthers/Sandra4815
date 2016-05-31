@@ -41,14 +41,8 @@ void DriveArcadeJoystick::Execute()
 	float yAdjus = sensativity*pow(oi->drive->GetRawAxis(0),3) + (1-sensativity)*(oi->drive->GetRawAxis(0));
 
 	drivetrain->ArcadeDrive(xAdjus, yAdjus);
-
-	//if(t->HasPeriodPassed(2.0)){
-		//drivetrain->Report();
-	//}
-
-	SmartDashboard::PutNumber("Speed", drivetrain->GetSpeed());
-	SmartDashboard::PutNumber("Relative Linear Travel", drivetrain->GetDistanceTravel());
-	SmartDashboard::PutNumber("Reative Heading Angle", drivetrain->GetYaw());
+	drivetrain->ReportSmartDash();
+	drivetrain->SetPIDSmartDash();
 
 }
 

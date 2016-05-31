@@ -12,7 +12,7 @@ private:
 	//RobotDrive *drive; //Added RobotDrive class to expirement for better driving?
 	Encoder *right;//, *left;
 	ADXRS450_Gyro *gyro;
-	double const DISTANCE_PER_PULSE = (PI*WHEEL_DIA_FT)/4096;
+	double const DISTANCE_PER_PULSE = (PI)/6144; //6144 came from conversion factor
 
 public:
 	enum PIDSensor {encoder_t, gyro_t, gyroAdjust_t} sensor;
@@ -28,6 +28,8 @@ public:
 	double GetYaw();
 	void SourcePID(PIDSensor);
 	void Report();
+	void ReportSmartDash();
+	void SetPIDSmartDash();
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	void InitDefaultCommand();
