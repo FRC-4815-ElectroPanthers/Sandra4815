@@ -57,6 +57,15 @@ void DriveArcadeRampUp::Execute()
 		Yout = -1.0;
 	}
 
+	std::cout << "PrevXVal: " << PrevXVal << "\n"
+			  << "PrevYVal: " << PrevYVal << "\n"
+			  << "CurrentXVal: " << CurrentXVal << "\n"
+			  << "CurrentYVal: " << CurrentYVal << "\n"
+			  << "Delta X: " << DeltaX << "\n"
+			  << "Delta Y: " << DeltaY << "\n"
+			  << "Xout: " << Xout << "\n"
+			  << "Yout: " << Yout << "\n";
+
 	drivetrain->ArcadeDrive(Xout, Yout);
 	drivetrain->ReportSmartDash();
 	//drivetrain->SetPIDSmartDash();
